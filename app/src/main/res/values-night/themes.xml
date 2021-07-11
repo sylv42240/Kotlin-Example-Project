@@ -11,6 +11,9 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+        <!-- SnackBar color. -->
+        <item name="snackbarSuccessBackground">@color/green</item>
+        <item name="snackbarWarningBackground">@color/orange</item>
+        <item name="snackbarErrorBackground">@color/red</item>
     </style>
 </resources>

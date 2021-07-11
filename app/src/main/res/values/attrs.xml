@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--  region SnackBars  -->
+    <attr name="snackbarSuccessBackground" format="color" />
+    <attr name="snackbarWarningBackground" format="color" />
+    <attr name="snackbarErrorBackground" format="color" />
+    <!--  endregion  -->
+
+</resources>
