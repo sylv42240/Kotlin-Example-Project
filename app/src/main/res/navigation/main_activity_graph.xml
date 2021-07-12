@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_activity_graph"
+    app:startDestination="@id/characterListFragment">
+
+    <fragment
+        android:id="@+id/characterListFragment"
+        android:name="com.sgranjon.kotlinexampleproject.presentation.ui.character_list.CharacterListFragment"
+        android:label="@string/menu_character_list_title"
+        tools:layout="@layout/fragment_character_list" />
+    <fragment
+        android:id="@+id/episodeListFragment"
+        android:name="com.sgranjon.kotlinexampleproject.presentation.ui.episode_list.EpisodeListFragment"
+        android:label="@string/menu_episode_list_title"
+        tools:layout="@layout/fragment_episode_list" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.sgranjon.kotlinexampleproject.presentation.ui.settings.SettingsFragment"
+        android:label="@string/menu_settings_title"
+        tools:layout="@layout/fragment_settings" />
+</navigation>

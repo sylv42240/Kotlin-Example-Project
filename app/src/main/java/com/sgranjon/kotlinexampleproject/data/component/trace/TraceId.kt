@@ -5,18 +5,18 @@ enum class TraceId {
      * DB Mappers
      */
 
-    DB_MAPPER_USER,
+    DB_MAPPER_CHARACTER,
 
     /**
      * Remote Mappers
      */
 
-    REMOTE_MAPPER_USER,
+    REMOTE_MAPPER_CHARACTER,
 
     /**
      * Model Mappers
      */
 
-    MODEL_MAPPER_USER
+    MODEL_MAPPER_CHARACTER
 
 }

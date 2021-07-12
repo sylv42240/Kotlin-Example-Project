@@ -15,5 +15,8 @@
     <string name="error_general">Une erreur est survenue</string>
     <string name="error_request_failed">La requête a échoué</string>
     <string name="error_offline">Veuillez vérifier votre connexion internet</string>
+    <string name="menu_character_list_title">Personnages</string>
+    <string name="menu_episode_list_title">Episodes</string>
+    <string name="menu_settings_title">Paramètres</string>
 
 </resources>
