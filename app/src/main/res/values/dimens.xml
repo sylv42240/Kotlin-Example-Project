@@ -3,8 +3,10 @@
     <!-- General -->
     <dimen name="base_margin">8dp</dimen>
     <dimen name="base_margin_double">16dp</dimen>
+    <dimen name="base_padding">8dp</dimen>
     <dimen name="base_elevation">4dp</dimen>
     <dimen name="base_corner_radius">8dp</dimen>
+    <dimen name="base_icon_size">20dp</dimen>
 
     <!-- Character Item -->
     <dimen name="view_character_item_image_size">80dp</dimen>

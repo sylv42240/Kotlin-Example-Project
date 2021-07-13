@@ -20,13 +20,15 @@
     <string name="menu_settings_title">Paramètres</string>
 
     <!-- Character Item -->
-    <string name="character_gender_male">Mâle</string>
-    <string name="character_gender_female">Femelle</string>
+    <string name="character_gender_male">Homme</string>
+    <string name="character_gender_female">Femme</string>
     <string name="character_gender_genderless">Sans genre</string>
-    <string name="character_gender_unknown">Inconnu</string>
+    <string name="character_gender_unknown">Genre inconnu</string>
 
     <string name="character_status_alive">Vivant</string>
     <string name="character_status_dead">Mort</string>
-    <string name="character_status_unknown">Inconnu</string>
+    <string name="character_status_unknown">Statut Inconnu</string>
+
+    <string name="character_list_empty_label">Aucun personnage trouvé</string>
 
 </resources>

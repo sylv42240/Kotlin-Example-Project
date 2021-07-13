@@ -13,12 +13,11 @@
         android:layout_height="match_parent"
         android:background="?attr/selectableItemBackground">
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/view_character_item_image"
             android:layout_width="@dimen/view_character_item_image_size"
             android:layout_height="@dimen/view_character_item_image_size"
             android:layout_margin="@dimen/base_margin"
-            android:contentDescription="@null"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -28,21 +27,71 @@
             android:id="@+id/view_character_item_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/base_margin"
+            android:layout_marginHorizontal="@dimen/base_margin"
             android:layout_marginTop="@dimen/base_margin"
-            android:textAppearance="?attr/textAppearanceBody1"
+            android:textAppearance="?attr/textAppearanceHeadline6"
             android:textColor="?attr/colorOnSecondary"
+            app:layout_constraintEnd_toStartOf="@id/view_character_item_right_arrow_icon"
             app:layout_constraintStart_toEndOf="@id/view_character_item_image"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0"
             app:layout_constraintVertical_chainStyle="packed"
             tools:text="Rick Sanchez" />
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/view_character_item_gender_icon"
+            android:layout_width="@dimen/base_icon_size"
+            android:layout_height="@dimen/base_icon_size"
+            android:layout_marginStart="@dimen/base_margin"
+            android:layout_marginTop="@dimen/base_margin"
+            app:layout_constraintBottom_toTopOf="@id/view_character_item_status_icon"
+            app:layout_constraintStart_toEndOf="@id/view_character_item_image"
+            app:layout_constraintTop_toBottomOf="@id/view_character_item_name"
+            tools:src="@drawable/ic_gender_male" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/view_character_item_gender"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/base_margin"
+            android:textAppearance="?attr/textAppearanceBody1"
+            android:textColor="?attr/colorOnSecondary"
+            app:layout_constraintBottom_toBottomOf="@id/view_character_item_gender_icon"
+            app:layout_constraintEnd_toStartOf="@id/view_character_item_right_arrow_icon"
+            app:layout_constraintStart_toEndOf="@id/view_character_item_gender_icon"
+            app:layout_constraintTop_toTopOf="@id/view_character_item_gender_icon"
+            tools:text="Homme" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/view_character_item_status_icon"
+            android:layout_width="@dimen/base_icon_size"
+            android:layout_height="@dimen/base_icon_size"
+            android:layout_marginStart="@dimen/base_margin"
+            android:layout_marginTop="@dimen/base_margin"
+            android:layout_marginBottom="@dimen/base_margin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/view_character_item_image"
+            app:layout_constraintTop_toBottomOf="@id/view_character_item_gender_icon"
+            tools:src="@drawable/ic_status_alive" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/view_character_item_status"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/base_margin"
+            android:textAppearance="?attr/textAppearanceBody1"
+            android:textColor="?attr/colorOnSecondary"
+            app:layout_constraintBottom_toBottomOf="@id/view_character_item_status_icon"
+            app:layout_constraintEnd_toStartOf="@id/view_character_item_right_arrow_icon"
+            app:layout_constraintStart_toEndOf="@id/view_character_item_status_icon"
+            app:layout_constraintTop_toTopOf="@id/view_character_item_status_icon"
+            tools:text="Vivant" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/view_character_item_right_arrow_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/base_margin"
-            android:contentDescription="@null"
             android:src="@drawable/ic_arrow_right"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
