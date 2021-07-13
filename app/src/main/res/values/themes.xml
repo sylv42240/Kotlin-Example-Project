@@ -1,19 +1,37 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Theme.KotlinExampleProject" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Primary brand color. -->
+        <!-- Primary brand color -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
-        <!-- Secondary brand color. -->
+        <!-- Secondary brand color -->
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
+        <!-- Status bar color -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- SnackBar color. -->
+        <!-- SnackBar color -->
         <item name="snackbarSuccessBackground">@color/green</item>
         <item name="snackbarWarningBackground">@color/orange</item>
         <item name="snackbarErrorBackground">@color/red</item>
+        <!-- Shape Appearance -->
+        <item name="shapeAppearanceCornerSize50Percent">@style/KotlinExampleProject.ShapeAppearance.CornerSize50Percent</item>
+        <!-- Text Appearance -->
+        <item name="textAppearanceBody1Light">@style/KotlinExampleProject.TextAppearance.Light.Body1</item>
+        <item name="textAppearanceBody2Light">@style/KotlinExampleProject.TextAppearance.Light.Body2</item>
+        <item name="textAppearanceTitle1Light">@style/KotlinExampleProject.TextAppearance.Light.Title1</item>
+        <item name="textAppearanceTitle2Light">@style/KotlinExampleProject.TextAppearance.Light.Title2</item>
+        <item name="textAppearanceSubtitleLight">@style/KotlinExampleProject.TextAppearance.Light.Subtitle</item>
+        <item name="textAppearanceBody1Dark">@style/KotlinExampleProject.TextAppearance.Dark.Body1</item>
+        <item name="textAppearanceBody2Dark">@style/KotlinExampleProject.TextAppearance.Dark.Body2</item>
+        <item name="textAppearanceTitle1Dark">@style/KotlinExampleProject.TextAppearance.Dark.Title1</item>
+        <item name="textAppearanceTitle2Dark">@style/KotlinExampleProject.TextAppearance.Dark.Title2</item>
+        <item name="textAppearanceSubtitleDark">@style/KotlinExampleProject.TextAppearance.Dark.Subtitle</item>
+        <!-- Action Bar -->
+        <item name="baseToolbar">@style/KotlinExampleProject.Toolbar</item>
+        <item name="baseBottomBar">@style/KotlinExampleProject.BottomBar</item>
     </style>
+
+
 </resources>

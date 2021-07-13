@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Shape Appearance -->
+    <style name="KotlinExampleProject.ShapeAppearance.CornerSize50Percent" parent="">
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <!-- Text Appearance -->
+    <style name="KotlinExampleProject.TextAppearance.Dark" parent="">
+        <item name="android:textColor">?attr/colorOnSecondary</item>
+    </style>
+
+    <style name="KotlinExampleProject.TextAppearance.Dark.Body1" parent="KotlinExampleProject.TextAppearance.Dark">
+        <item name="android:textSize">@dimen/body1_text_size</item>
+        <item name="android:fontFamily">@font/nunito_sans_regular</item>
+    </style>
+
+    <style name="KotlinExampleProject.TextAppearance.Dark.Body2" parent="KotlinExampleProject.TextAppearance.Dark">
+        <item name="android:textSize">@dimen/body2_text_size</item>
+        <item name="android:fontFamily">@font/nunito_sans_regular</item>
+    </style>
+
+    <style name="KotlinExampleProject.TextAppearance.Dark.Title1" parent="KotlinExampleProject.TextAppearance.Dark">
+        <item name="android:textSize">@dimen/title1_text_size</item>
+        <item name="android:fontFamily">@font/sofia_pro_medium</item>
+    </style>
+
+    <style name="KotlinExampleProject.TextAppearance.Dark.Title2" parent="KotlinExampleProject.TextAppearance.Dark">
+        <item name="android:textSize">@dimen/title2_text_size</item>
+        <item name="android:fontFamily">@font/sofia_pro_medium</item>
+    </style>
+
+    <style name="KotlinExampleProject.TextAppearance.Dark.Subtitle" parent="KotlinExampleProject.TextAppearance.Dark">
+        <item name="android:textSize">@dimen/subtitle_text_size</item>
+        <item name="android:fontFamily">@font/sofia_pro_medium</item>
+    </style>
+
+    <style name="KotlinExampleProject.TextAppearance.Light" parent="">
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+    </style>
+
+    <style name="KotlinExampleProject.TextAppearance.Light.Body1" parent="KotlinExampleProject.TextAppearance.Light">
+        <item name="android:textSize">@dimen/body1_text_size</item>
+        <item name="android:fontFamily">@font/nunito_sans_regular</item>
+    </style>
+
+    <style name="KotlinExampleProject.TextAppearance.Light.Body2" parent="KotlinExampleProject.TextAppearance.Light">
+        <item name="android:textSize">@dimen/body2_text_size</item>
+        <item name="android:fontFamily">@font/nunito_sans_regular</item>
+    </style>
+
+    <style name="KotlinExampleProject.TextAppearance.Light.Title1" parent="KotlinExampleProject.TextAppearance.Light">
+        <item name="android:textSize">@dimen/title1_text_size</item>
+        <item name="android:fontFamily">@font/sofia_pro_medium</item>
+    </style>
+
+    <style name="KotlinExampleProject.TextAppearance.Light.Title2" parent="KotlinExampleProject.TextAppearance.Light">
+        <item name="android:textSize">@dimen/title2_text_size</item>
+        <item name="android:fontFamily">@font/sofia_pro_medium</item>
+    </style>
+
+    <style name="KotlinExampleProject.TextAppearance.Light.Subtitle" parent="KotlinExampleProject.TextAppearance.Light">
+        <item name="android:textSize">@dimen/subtitle_text_size</item>
+        <item name="android:fontFamily">@font/sofia_pro_medium</item>
+    </style>
+
+    <!-- Action Bar -->
+    <style name="KotlinExampleProject.Toolbar" parent="Widget.MaterialComponents.Toolbar">
+        <item name="android:background">?attr/colorPrimaryVariant</item>
+        <item name="titleTextColor">?attr/colorOnPrimary</item>
+    </style>
+
+    <style name="KotlinExampleProject.BottomBar" parent="Widget.MaterialComponents.BottomAppBar">
+        <item name="labelVisibilityMode">selected</item>
+        <item name="elevation">@dimen/base_elevation</item>
+    </style>
+
+</resources>

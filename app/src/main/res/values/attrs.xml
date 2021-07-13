@@ -1,10 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!--  region SnackBars  -->
+    <!-- SnackBar -->
     <attr name="snackbarSuccessBackground" format="color" />
     <attr name="snackbarWarningBackground" format="color" />
     <attr name="snackbarErrorBackground" format="color" />
-    <!--  endregion  -->
+
+    <!-- Shape Appearance -->
+    <attr name="shapeAppearanceCornerSize50Percent" format="reference" />
+
+    <!-- Text Appearance -->
+    <attr name="textAppearanceBody1Light" format="reference" />
+    <attr name="textAppearanceBody2Light" format="reference" />
+    <attr name="textAppearanceTitle1Light" format="reference" />
+    <attr name="textAppearanceTitle2Light" format="reference" />
+    <attr name="textAppearanceSubtitleLight" format="reference" />
+
+    <attr name="textAppearanceBody1Dark" format="reference" />
+    <attr name="textAppearanceBody2Dark" format="reference" />
+    <attr name="textAppearanceTitle1Dark" format="reference" />
+    <attr name="textAppearanceTitle2Dark" format="reference" />
+    <attr name="textAppearanceSubtitleDark" format="reference" />
+
+    <!-- Action Bar -->
+    <attr name="baseToolbar" format="reference" />
+    <attr name="baseBottomBar" format="reference" />
 
 </resources>

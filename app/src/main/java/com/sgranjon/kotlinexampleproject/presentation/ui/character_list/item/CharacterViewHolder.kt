@@ -24,8 +24,10 @@ class CharacterViewHolder(view: View) : RecyclerView.ViewHolder(view) {
             val genderIcon = findViewById<ImageView>(R.id.view_character_item_gender_icon)
             val statusIcon = findViewById<ImageView>(R.id.view_character_item_status_icon)
 
-            Glide.with(context).load(character.getImageUrl()).circleCrop()
-                .diskCacheStrategy(DiskCacheStrategy.ALL).into(image)
+            Glide.with(context)
+                .load(character.getImageUrl())
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(image)
             name.text = character.getName()
             gender.text = character.getGender(context)
             status.text = character.getStatus(context)

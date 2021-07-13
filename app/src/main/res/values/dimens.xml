@@ -8,7 +8,15 @@
     <dimen name="base_corner_radius">8dp</dimen>
     <dimen name="base_icon_size">20dp</dimen>
 
+    <!-- Text Size -->
+    <dimen name="body1_text_size">12sp</dimen>
+    <dimen name="body2_text_size">14sp</dimen>
+    <dimen name="subtitle_text_size">16sp</dimen>
+    <dimen name="title1_text_size">18sp</dimen>
+    <dimen name="title2_text_size">20sp</dimen>
+
     <!-- Character Item -->
     <dimen name="view_character_item_image_size">80dp</dimen>
+    <dimen name="view_character_item_image_stroke_width">1dp</dimen>
 
 </resources>
