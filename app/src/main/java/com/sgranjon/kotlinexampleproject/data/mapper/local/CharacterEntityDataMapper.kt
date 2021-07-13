@@ -12,7 +12,9 @@ import javax.inject.Inject
 
 @Reusable
 class CharacterEntityDataMapper @Inject constructor(
-    private val traceComponent: TraceComponent
+    private val traceComponent: TraceComponent,
+    private val characterGenderDataMapper: CharacterGenderDataMapper,
+    private val characterStatusDataMapper: CharacterStatusDataMapper
 ) : ModelMapper<Character, CharacterEntity>() {
 
     override fun transformModelToEntity(input: Character): CharacterEntity {
@@ -22,10 +24,10 @@ class CharacterEntityDataMapper @Inject constructor(
     override fun transformEntityToModel(input: CharacterEntity): Character = Character(
         id = input.id,
         name = input.name,
-        status = input.status,
+        status = characterStatusDataMapper.transformStringToCharacterStatus(input.status),
         species = input.species,
         type = input.type,
-        gender = input.gender,
+        gender = characterGenderDataMapper.transformStringToCharacterGender(input.gender),
         image = input.image
     )
 
