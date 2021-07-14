@@ -44,12 +44,14 @@ class CharacterListFragment :
         super.onViewCreated(view, savedInstanceState)
         observeCharacterList()
         setupRecyclerView()
+        setupRefreshLayout()
     }
 
     private fun observeCharacterList() {
         viewModel.getCharacterListLiveData().observeSafe(viewLifecycleOwner) { characterList ->
             characterListAdapter.setItems(characterList)
             binding {
+                characterListSwipeLayout.isRefreshing = false
                 if (characterList.isEmpty()) {
                     characterListRecyclerView.hide()
                     characterListEmptyPlaceholderText.show()
@@ -78,6 +80,12 @@ class CharacterListFragment :
             }
         }
         characterListAdapter.onItemClicked = ::onCharacterClicked
+    }
+
+    private fun setupRefreshLayout() {
+        binding.characterListSwipeLayout.setOnRefreshListener {
+            viewModel.retrieveCharacterList()
+        }
     }
 
     private fun onCharacterClicked(id: Int) {
