@@ -9,6 +9,7 @@
         android:id="@+id/activity_main_toolbar"
         style="?attr/baseToolbar"
         android:layout_width="match_parent"
+        android:theme="?attr/toolbarNavigationIconLightTheme"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:title="@string/menu_character_list_title" />

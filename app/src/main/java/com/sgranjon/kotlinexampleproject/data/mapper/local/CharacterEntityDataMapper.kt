@@ -28,7 +28,10 @@ class CharacterEntityDataMapper @Inject constructor(
         species = input.species,
         type = input.type,
         gender = characterGenderDataMapper.transformStringToCharacterGender(input.gender),
-        image = input.image
+        image = input.image,
+        origin = input.origin,
+        location = input.location,
+        episodeList = input.episodeList
     )
 
     override fun onMappingError(error: Exception) {

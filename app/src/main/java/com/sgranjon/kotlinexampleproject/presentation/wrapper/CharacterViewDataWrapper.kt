@@ -17,7 +17,15 @@ class CharacterViewDataWrapper(private val character: Character) {
 
     fun getSpecies() = character.species
 
-    fun getType() = character.type
+    fun getLocation() = character.location
+
+    fun getOrigin() = character.origin
+
+    fun getEpisodeCountText(context: Context) = context.resources.getQuantityString(
+        R.plurals.character_episode_count,
+        character.episodeList.size,
+        character.episodeList.size
+    )
 
     fun getGender(context: Context) = context.getString(
         when (character.gender) {
@@ -28,7 +36,8 @@ class CharacterViewDataWrapper(private val character: Character) {
         }
     )
 
-    fun getGenderIcon(context: Context) = ContextCompat.getDrawable(context,
+    fun getGenderIcon(context: Context) = ContextCompat.getDrawable(
+        context,
         when (character.gender) {
             CharacterGender.FEMALE -> R.drawable.ic_gender_female
             CharacterGender.MALE -> R.drawable.ic_gender_male
@@ -45,7 +54,8 @@ class CharacterViewDataWrapper(private val character: Character) {
         }
     )
 
-    fun getStatusIcon(context: Context) = ContextCompat.getDrawable(context,
+    fun getStatusIcon(context: Context) = ContextCompat.getDrawable(
+        context,
         when (character.status) {
             CharacterStatus.ALIVE -> R.drawable.ic_status_alive
             CharacterStatus.DEAD -> R.drawable.ic_status_dead

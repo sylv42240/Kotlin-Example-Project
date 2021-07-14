@@ -18,13 +18,13 @@
             android:layout_width="@dimen/view_character_item_image_size"
             android:layout_height="@dimen/view_character_item_image_size"
             android:layout_margin="@dimen/base_margin"
-            android:padding="@dimen/view_character_item_image_stroke_width"
+            android:padding="@dimen/character_image_stroke_width"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:shapeAppearance="?attr/shapeAppearanceCornerSize50Percent"
             app:strokeColor="?attr/colorPrimary"
-            app:strokeWidth="@dimen/view_character_item_image_stroke_width" />
+            app:strokeWidth="@dimen/character_image_stroke_width" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/view_character_item_name"
@@ -57,7 +57,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/base_margin"
-            android:textAppearance="?attr/textAppearanceSubtitleDark"
+            android:textAppearance="?attr/textAppearanceSubtitle1Dark"
             app:layout_constraintBottom_toBottomOf="@id/view_character_item_gender_icon"
             app:layout_constraintEnd_toStartOf="@id/view_character_item_right_arrow_icon"
             app:layout_constraintStart_toEndOf="@id/view_character_item_gender_icon"
@@ -80,7 +80,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/base_margin"
-            android:textAppearance="?attr/textAppearanceSubtitleDark"
+            android:textAppearance="?attr/textAppearanceSubtitle1Dark"
             app:layout_constraintBottom_toBottomOf="@id/view_character_item_status_icon"
             app:layout_constraintEnd_toStartOf="@id/view_character_item_right_arrow_icon"
             app:layout_constraintStart_toEndOf="@id/view_character_item_status_icon"

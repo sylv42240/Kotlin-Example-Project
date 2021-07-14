@@ -26,7 +26,10 @@ class CharacterRemoteEntityDataMapper @Inject constructor(
             species = input.species,
             type = input.type,
             gender = input.gender,
-            image = input.image
+            image = input.image,
+            origin = input.origin.name,
+            location = input.location.name,
+            episodeList = input.episodeList
         )
 
     override fun onMappingError(error: Exception) {

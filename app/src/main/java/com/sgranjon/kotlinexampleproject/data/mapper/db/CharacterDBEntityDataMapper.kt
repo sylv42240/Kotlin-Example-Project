@@ -21,7 +21,10 @@ class CharacterDBEntityDataMapper @Inject constructor(
         species = input.species,
         type = input.type,
         gender = input.gender,
-        image = input.image
+        image = input.image,
+        origin = input.origin,
+        location = input.location,
+        episodeList = input.episodeList
     )
 
     override fun transformEntityToDB(input: CharacterEntity): CharacterDBEntity = CharacterDBEntity(
@@ -31,7 +34,10 @@ class CharacterDBEntityDataMapper @Inject constructor(
         species = input.species,
         type = input.type,
         gender = input.gender,
-        image = input.image
+        image = input.image,
+        origin = input.origin,
+        location = input.location,
+        episodeList = input.episodeList
     )
 
     override fun onMappingError(error: Exception) {

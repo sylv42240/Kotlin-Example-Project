@@ -9,7 +9,15 @@
         android:id="@+id/characterListFragment"
         android:name="com.sgranjon.kotlinexampleproject.presentation.ui.character_list.CharacterListFragment"
         android:label="@string/menu_character_list_title"
-        tools:layout="@layout/fragment_character_list" />
+        tools:layout="@layout/fragment_character_list">
+        <action
+            android:id="@+id/action_characterListFragment_to_characterDetailFragment"
+            app:destination="@id/characterDetailFragment">
+            <argument
+                android:name="bundleCharacterDetailId"
+                app:argType="integer" />
+        </action>
+    </fragment>
     <fragment
         android:id="@+id/episodeListFragment"
         android:name="com.sgranjon.kotlinexampleproject.presentation.ui.episode_list.EpisodeListFragment"
@@ -20,4 +28,9 @@
         android:name="com.sgranjon.kotlinexampleproject.presentation.ui.settings.SettingsFragment"
         android:label="@string/menu_settings_title"
         tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/characterDetailFragment"
+        android:name="com.sgranjon.kotlinexampleproject.presentation.ui.character_detail.CharacterDetailFragment"
+        android:label="CharacterDetailFragment"
+        tools:layout="@layout/fragment_character_detail" />
 </navigation>

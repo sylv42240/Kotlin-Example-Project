@@ -31,9 +31,14 @@
         <item name="android:fontFamily">@font/sofia_pro_medium</item>
     </style>
 
-    <style name="KotlinExampleProject.TextAppearance.Dark.Subtitle" parent="KotlinExampleProject.TextAppearance.Dark">
+    <style name="KotlinExampleProject.TextAppearance.Dark.Subtitle1" parent="KotlinExampleProject.TextAppearance.Dark">
         <item name="android:textSize">@dimen/subtitle_text_size</item>
         <item name="android:fontFamily">@font/sofia_pro_medium</item>
+    </style>
+
+    <style name="KotlinExampleProject.TextAppearance.Dark.Subtitle2" parent="KotlinExampleProject.TextAppearance.Dark">
+        <item name="android:textSize">@dimen/subtitle_text_size</item>
+        <item name="android:fontFamily">@font/nunito_sans_regular</item>
     </style>
 
     <style name="KotlinExampleProject.TextAppearance.Light" parent="">
@@ -60,9 +65,14 @@
         <item name="android:fontFamily">@font/sofia_pro_medium</item>
     </style>
 
-    <style name="KotlinExampleProject.TextAppearance.Light.Subtitle" parent="KotlinExampleProject.TextAppearance.Light">
+    <style name="KotlinExampleProject.TextAppearance.Light.Subtitle1" parent="KotlinExampleProject.TextAppearance.Light">
         <item name="android:textSize">@dimen/subtitle_text_size</item>
         <item name="android:fontFamily">@font/sofia_pro_medium</item>
+    </style>
+
+    <style name="KotlinExampleProject.TextAppearance.Light.Subtitle2" parent="KotlinExampleProject.TextAppearance.Light">
+        <item name="android:textSize">@dimen/subtitle_text_size</item>
+        <item name="android:fontFamily">@font/nunito_sans_regular</item>
     </style>
 
     <!-- Action Bar -->
@@ -74,6 +84,11 @@
     <style name="KotlinExampleProject.BottomBar" parent="Widget.MaterialComponents.BottomAppBar">
         <item name="labelVisibilityMode">selected</item>
         <item name="elevation">@dimen/base_elevation</item>
+    </style>
+
+    <style name="KotlinExampleProject.ToolbarNavigationIconLightTheme" parent="ThemeOverlay.MaterialComponents.Toolbar.Primary">
+        <!-- This attributes is used by navigation icon and overflow icon -->
+        <item name="colorOnPrimary">@color/white</item>
     </style>
 
 </resources>

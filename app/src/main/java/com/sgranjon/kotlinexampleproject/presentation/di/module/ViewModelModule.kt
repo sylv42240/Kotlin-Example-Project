@@ -2,6 +2,7 @@ package com.sgranjon.kotlinexampleproject.presentation.di.module
 
 import androidx.lifecycle.ViewModel
 import com.sgranjon.kotlinexampleproject.presentation.di.annotation.ViewModelKey
+import com.sgranjon.kotlinexampleproject.presentation.ui.character_detail.CharacterDetailViewModel
 import com.sgranjon.kotlinexampleproject.presentation.ui.character_list.CharacterListViewModel
 import com.sgranjon.kotlinexampleproject.presentation.ui.episode_list.EpisodeListViewModel
 import com.sgranjon.kotlinexampleproject.presentation.ui.settings.SettingsViewModel
@@ -27,4 +28,9 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(SettingsViewModel::class)
     abstract fun bindSettingsViewModel(viewModel: SettingsViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(CharacterDetailViewModel::class)
+    abstract fun bindCharacterDetailViewModel(viewModel: CharacterDetailViewModel): ViewModel
 }

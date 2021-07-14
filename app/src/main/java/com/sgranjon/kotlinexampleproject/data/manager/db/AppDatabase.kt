@@ -4,7 +4,9 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import com.sgranjon.kotlinexampleproject.data.entity.db.CharacterDBEntity
+import com.sgranjon.kotlinexampleproject.data.manager.db.converter.StringListConverter
 import com.sgranjon.kotlinexampleproject.data.manager.db.dao.CharacterDao
 
 
@@ -13,6 +15,9 @@ import com.sgranjon.kotlinexampleproject.data.manager.db.dao.CharacterDao
         CharacterDBEntity::class
     ], version = 1,
     exportSchema = false
+)
+@TypeConverters(
+    StringListConverter::class
 )
 abstract class AppDatabase : RoomDatabase() {
     abstract fun characterDao(): CharacterDao

@@ -14,16 +14,23 @@
     <attr name="textAppearanceBody2Light" format="reference" />
     <attr name="textAppearanceTitle1Light" format="reference" />
     <attr name="textAppearanceTitle2Light" format="reference" />
-    <attr name="textAppearanceSubtitleLight" format="reference" />
+    <attr name="textAppearanceSubtitle1Light" format="reference" />
+    <attr name="textAppearanceSubtitle2Light" format="reference" />
 
     <attr name="textAppearanceBody1Dark" format="reference" />
     <attr name="textAppearanceBody2Dark" format="reference" />
     <attr name="textAppearanceTitle1Dark" format="reference" />
     <attr name="textAppearanceTitle2Dark" format="reference" />
-    <attr name="textAppearanceSubtitleDark" format="reference" />
+    <attr name="textAppearanceSubtitle1Dark" format="reference" />
+    <attr name="textAppearanceSubtitle2Dark" format="reference" />
 
     <!-- Action Bar -->
     <attr name="baseToolbar" format="reference" />
+    <attr name="toolbarNavigationIconLightTheme" format="reference" />
     <attr name="baseBottomBar" format="reference" />
+
+    <!-- Divider -->
+    <attr name="dividerColor" format="color" />
+    <attr name="dividerHeight" format="dimension" />
 
 </resources>

@@ -33,4 +33,15 @@
     <string name="character_status_dead">Mort</string>
     <string name="character_status_unknown">Statut Inconnu</string>
 
+    <string name="character_gender_label">Genre</string>
+    <string name="character_status_label">Statut</string>
+    <string name="character_species_label">Espèce</string>
+    <string name="character_origin_label">Origine</string>
+    <string name="character_episode_count_label">Apparaît dans</string>
+    <plurals name="character_episode_count">
+        <item quantity="zero">%s épisode</item>
+        <item quantity="one">%s épisode</item>
+        <item quantity="other">%s épisodes</item>
+    </plurals>
+
 </resources>

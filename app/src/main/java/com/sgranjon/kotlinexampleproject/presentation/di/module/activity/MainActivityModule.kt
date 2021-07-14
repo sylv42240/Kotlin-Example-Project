@@ -3,9 +3,13 @@ package com.sgranjon.kotlinexampleproject.presentation.di.module.activity
 import androidx.navigation.findNavController
 import com.sgranjon.kotlinexampleproject.presentation.di.annotation.PerActivity
 import com.sgranjon.kotlinexampleproject.presentation.di.annotation.PerFragment
+import com.sgranjon.kotlinexampleproject.presentation.ui.character_detail.CharacterDetailFragment
 import com.sgranjon.kotlinexampleproject.presentation.ui.character_list.CharacterListFragment
 import com.sgranjon.kotlinexampleproject.presentation.ui.episode_list.EpisodeListFragment
 import com.sgranjon.kotlinexampleproject.presentation.ui.main.MainActivity
+import com.sgranjon.kotlinexampleproject.presentation.ui.main.navigator.CharacterDetailNavigatorListener
+import com.sgranjon.kotlinexampleproject.presentation.ui.main.navigator.CharacterListNavigatorListener
+import com.sgranjon.kotlinexampleproject.presentation.ui.main.navigator.MainNavigator
 import com.sgranjon.kotlinexampleproject.presentation.ui.settings.SettingsFragment
 import dagger.Module
 import dagger.Provides
@@ -19,6 +23,16 @@ class MainActivityModule {
     @Provides
     fun mainNavController(mainActivity: MainActivity) =
         mainActivity.findNavController(mainActivity.getNavControllerId())
+
+    @PerActivity
+    @Provides
+    fun characterListNavigator(mainNavigator: MainNavigator): CharacterListNavigatorListener =
+        mainNavigator
+
+    @PerActivity
+    @Provides
+    fun characterDetailNavigator(mainNavigator: MainNavigator): CharacterDetailNavigatorListener =
+        mainNavigator
 }
 
 @Module
@@ -27,6 +41,10 @@ private abstract class CharacterFragmentModule {
     @PerFragment
     @ContributesAndroidInjector
     abstract fun characterListFragmentInjector(): CharacterListFragment
+
+    @PerFragment
+    @ContributesAndroidInjector
+    abstract fun characterDetailFragmentInjector(): CharacterDetailFragment
 
 }
 

@@ -16,21 +16,51 @@
         <item name="snackbarWarningBackground">@color/orange</item>
         <item name="snackbarErrorBackground">@color/red</item>
         <!-- Shape Appearance -->
-        <item name="shapeAppearanceCornerSize50Percent">@style/KotlinExampleProject.ShapeAppearance.CornerSize50Percent</item>
+        <item name="shapeAppearanceCornerSize50Percent">
+            @style/KotlinExampleProject.ShapeAppearance.CornerSize50Percent
+        </item>
         <!-- Text Appearance -->
-        <item name="textAppearanceBody1Light">@style/KotlinExampleProject.TextAppearance.Light.Body1</item>
-        <item name="textAppearanceBody2Light">@style/KotlinExampleProject.TextAppearance.Light.Body2</item>
-        <item name="textAppearanceTitle1Light">@style/KotlinExampleProject.TextAppearance.Light.Title1</item>
-        <item name="textAppearanceTitle2Light">@style/KotlinExampleProject.TextAppearance.Light.Title2</item>
-        <item name="textAppearanceSubtitleLight">@style/KotlinExampleProject.TextAppearance.Light.Subtitle</item>
-        <item name="textAppearanceBody1Dark">@style/KotlinExampleProject.TextAppearance.Dark.Body1</item>
-        <item name="textAppearanceBody2Dark">@style/KotlinExampleProject.TextAppearance.Dark.Body2</item>
-        <item name="textAppearanceTitle1Dark">@style/KotlinExampleProject.TextAppearance.Dark.Title1</item>
-        <item name="textAppearanceTitle2Dark">@style/KotlinExampleProject.TextAppearance.Dark.Title2</item>
-        <item name="textAppearanceSubtitleDark">@style/KotlinExampleProject.TextAppearance.Dark.Subtitle</item>
+        <item name="textAppearanceBody1Light">
+            @style/KotlinExampleProject.TextAppearance.Light.Body1
+        </item>
+        <item name="textAppearanceBody2Light">
+            @style/KotlinExampleProject.TextAppearance.Light.Body2
+        </item>
+        <item name="textAppearanceTitle1Light">
+            @style/KotlinExampleProject.TextAppearance.Light.Title1
+        </item>
+        <item name="textAppearanceTitle2Light">
+            @style/KotlinExampleProject.TextAppearance.Light.Title2
+        </item>
+        <item name="textAppearanceSubtitle1Light">
+            @style/KotlinExampleProject.TextAppearance.Light.Subtitle1
+        </item>
+        <item name="textAppearanceSubtitle2Light">
+            @style/KotlinExampleProject.TextAppearance.Light.Subtitle2
+        </item>
+        <item name="textAppearanceBody1Dark">@style/KotlinExampleProject.TextAppearance.Dark.Body1
+        </item>
+        <item name="textAppearanceBody2Dark">@style/KotlinExampleProject.TextAppearance.Dark.Body2
+        </item>
+        <item name="textAppearanceTitle1Dark">
+            @style/KotlinExampleProject.TextAppearance.Dark.Title1
+        </item>
+        <item name="textAppearanceTitle2Dark">
+            @style/KotlinExampleProject.TextAppearance.Dark.Title2
+        </item>
+        <item name="textAppearanceSubtitle1Dark">
+            @style/KotlinExampleProject.TextAppearance.Dark.Subtitle1
+        </item>
+        <item name="textAppearanceSubtitle2Dark">
+            @style/KotlinExampleProject.TextAppearance.Dark.Subtitle2
+        </item>
         <!-- Action Bar -->
         <item name="baseToolbar">@style/KotlinExampleProject.Toolbar</item>
+        <item name="toolbarNavigationIconLightTheme">@style/KotlinExampleProject.ToolbarNavigationIconLightTheme</item>
         <item name="baseBottomBar">@style/KotlinExampleProject.BottomBar</item>
+        <!-- Divider -->
+        <item name="dividerHeight">@dimen/base_divider_height</item>
+        <item name="dividerColor">@color/grey</item>
     </style>
 
 

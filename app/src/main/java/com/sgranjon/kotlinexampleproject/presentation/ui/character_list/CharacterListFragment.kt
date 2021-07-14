@@ -15,6 +15,7 @@ import com.sgranjon.kotlinexampleproject.presentation.extensions.hide
 import com.sgranjon.kotlinexampleproject.presentation.extensions.observeSafe
 import com.sgranjon.kotlinexampleproject.presentation.extensions.show
 import com.sgranjon.kotlinexampleproject.presentation.ui.character_list.item.CharacterListAdapter
+import com.sgranjon.kotlinexampleproject.presentation.ui.main.navigator.CharacterListNavigatorListener
 import javax.inject.Inject
 
 class CharacterListFragment :
@@ -30,6 +31,9 @@ class CharacterListFragment :
 
     @Inject
     lateinit var characterListAdapter: CharacterListAdapter
+
+    @Inject
+    lateinit var navigatorListener: CharacterListNavigatorListener
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -73,8 +77,7 @@ class CharacterListFragment :
     }
 
     private fun onCharacterClicked(id: Int) {
-        // TODO : Implement navigation
-        Toast.makeText(requireContext(), id.toString(), Toast.LENGTH_SHORT).show()
+        navigatorListener.displayCharacterDetail(id)
     }
 
 }
