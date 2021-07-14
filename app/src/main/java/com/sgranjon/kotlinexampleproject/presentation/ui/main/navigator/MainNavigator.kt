@@ -9,7 +9,7 @@ import javax.inject.Inject
 class MainNavigator @Inject constructor(
     private val navController: Lazy<NavController>,
     private val navigationComponent: NavigationComponent
-) : CharacterListNavigatorListener, CharacterDetailNavigatorListener {
+) : CharacterListNavigatorListener {
 
     override fun displayCharacterDetail(id: Int) {
         if (navigationComponent.isNavigationEventBlocked(navController.get())) {
@@ -21,14 +21,6 @@ class MainNavigator @Inject constructor(
                         id
                     )
                 )
-        }
-    }
-
-    override fun goBackToCharacterList() {
-        if (navigationComponent.isNavigationEventBlocked(navController.get())) {
-            return
-        } else {
-            navController.get().popBackStack()
         }
     }
 

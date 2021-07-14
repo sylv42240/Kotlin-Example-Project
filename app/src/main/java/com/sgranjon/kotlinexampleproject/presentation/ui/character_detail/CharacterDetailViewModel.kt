@@ -7,12 +7,15 @@ import com.sgranjon.kotlinexampleproject.presentation.base.SingleLiveEvent
 import com.sgranjon.kotlinexampleproject.presentation.base.viewmodel.BaseViewModel
 import com.sgranjon.kotlinexampleproject.presentation.extensions.subscribeByIO
 import com.sgranjon.kotlinexampleproject.presentation.wrapper.CharacterViewDataWrapper
+import com.sgranjon.kotlinexampleproject.presentation.wrapper.EpisodeViewDataWrapper
 import javax.inject.Inject
 
 class CharacterDetailViewModel @Inject constructor(private val characterRepository: CharacterRepository) :
     BaseViewModel() {
     private val characterDetailLiveData = MutableLiveData<CharacterViewDataWrapper>()
+    private val episodeListLiveData = MutableLiveData<List<EpisodeViewDataWrapper>>()
     private val errorLiveEvent = SingleLiveEvent<Throwable>()
+
     fun retrieveCharacterDetail(id: Int) {
         characterRepository.retrieveCharacterById(id).subscribeByIO(
             onSuccess = {
@@ -24,6 +27,18 @@ class CharacterDetailViewModel @Inject constructor(private val characterReposito
         ).addToComposite()
     }
 
+    fun retrieveCharacterEpisodeList(id: Int) {
+        characterRepository.retrieveCharacterEpisodeList(id).subscribeByIO(
+            onSuccess = { episodes ->
+                episodeListLiveData.postValue(episodes.map { EpisodeViewDataWrapper(it) })
+            },
+            onError = {
+                errorLiveEvent.postValue(it)
+            }
+        ).addToComposite()
+    }
+
     fun getCharacterDetailLiveData(): LiveData<CharacterViewDataWrapper> = characterDetailLiveData
+    fun getEpisodeListLiveData(): LiveData<List<EpisodeViewDataWrapper>> = episodeListLiveData
     fun getErrorLiveEvent(): LiveData<Throwable> = errorLiveEvent
 }

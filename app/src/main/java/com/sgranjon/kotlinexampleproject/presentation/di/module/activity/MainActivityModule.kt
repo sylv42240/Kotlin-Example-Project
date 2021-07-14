@@ -7,7 +7,6 @@ import com.sgranjon.kotlinexampleproject.presentation.ui.character_detail.Charac
 import com.sgranjon.kotlinexampleproject.presentation.ui.character_list.CharacterListFragment
 import com.sgranjon.kotlinexampleproject.presentation.ui.episode_list.EpisodeListFragment
 import com.sgranjon.kotlinexampleproject.presentation.ui.main.MainActivity
-import com.sgranjon.kotlinexampleproject.presentation.ui.main.navigator.CharacterDetailNavigatorListener
 import com.sgranjon.kotlinexampleproject.presentation.ui.main.navigator.CharacterListNavigatorListener
 import com.sgranjon.kotlinexampleproject.presentation.ui.main.navigator.MainNavigator
 import com.sgranjon.kotlinexampleproject.presentation.ui.settings.SettingsFragment
@@ -27,11 +26,6 @@ class MainActivityModule {
     @PerActivity
     @Provides
     fun characterListNavigator(mainNavigator: MainNavigator): CharacterListNavigatorListener =
-        mainNavigator
-
-    @PerActivity
-    @Provides
-    fun characterDetailNavigator(mainNavigator: MainNavigator): CharacterDetailNavigatorListener =
         mainNavigator
 }
 

@@ -12,11 +12,13 @@ enum class TraceId {
      */
 
     REMOTE_MAPPER_CHARACTER,
+    REMOTE_MAPPER_EPISODE,
 
     /**
      * Model Mappers
      */
 
-    MODEL_MAPPER_CHARACTER
+    MODEL_MAPPER_CHARACTER,
+    MODEL_MAPPER_EPISODE
 
 }

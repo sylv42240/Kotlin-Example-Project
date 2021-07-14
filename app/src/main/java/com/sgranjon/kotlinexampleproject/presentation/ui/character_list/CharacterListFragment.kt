@@ -61,6 +61,10 @@ class CharacterListFragment :
         }
         viewModel.getErrorLiveEvent().observeSafe(viewLifecycleOwner) {
             snackbarComponent.displayError(requireContext(), it, requireView())
+            binding {
+                characterListRecyclerView.hide()
+                characterListEmptyPlaceholderText.show()
+            }
         }
     }
 
