@@ -1,3 +1,5 @@
 package com.sgranjon.kotlinexampleproject.data.exception
 
-class RequestFailException : RuntimeException()
+import okio.IOException
+
+class RequestFailException : IOException()

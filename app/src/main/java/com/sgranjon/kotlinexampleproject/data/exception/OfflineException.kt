@@ -1,3 +1,5 @@
 package com.sgranjon.kotlinexampleproject.data.exception
 
-class OfflineException : RuntimeException()
+import okio.IOException
+
+class OfflineException : IOException()

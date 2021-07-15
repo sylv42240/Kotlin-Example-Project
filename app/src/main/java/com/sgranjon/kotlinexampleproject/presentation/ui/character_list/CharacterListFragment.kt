@@ -5,9 +5,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.sgranjon.kotlinexampleproject.data.exception.CharacterNotFoundException
 import com.sgranjon.kotlinexampleproject.databinding.FragmentCharacterListBinding
 import com.sgranjon.kotlinexampleproject.presentation.base.fragment.BaseVMFragment
 import com.sgranjon.kotlinexampleproject.presentation.component.snackbar.SnackbarComponent
@@ -17,7 +18,9 @@ import com.sgranjon.kotlinexampleproject.presentation.extensions.show
 import com.sgranjon.kotlinexampleproject.presentation.ui.character_list.item.CharacterListAdapter
 import com.sgranjon.kotlinexampleproject.presentation.ui.main.navigator.CharacterListNavigatorListener
 import javax.inject.Inject
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 
+@ExperimentalCoroutinesApi
 class CharacterListFragment :
     BaseVMFragment<CharacterListViewModel, FragmentCharacterListBinding>() {
 
@@ -48,26 +51,13 @@ class CharacterListFragment :
     }
 
     private fun observeCharacterList() {
-        viewModel.getCharacterListLiveData().observeSafe(viewLifecycleOwner) { characterList ->
-            characterListAdapter.setItems(characterList)
-            binding {
-                characterListSwipeLayout.isRefreshing = false
-                if (characterList.isEmpty()) {
-                    characterListRecyclerView.hide()
-                    characterListEmptyPlaceholderText.show()
-                } else {
-                    characterListRecyclerView.show()
-                    characterListEmptyPlaceholderText.hide()
+        viewModel.getCharacterPagingDataLiveData()
+            .observeSafe(viewLifecycleOwner) { characterList ->
+                characterListAdapter.submitData(lifecycle, characterList)
+                binding {
+                    characterListSwipeLayout.isRefreshing = false
                 }
             }
-        }
-        viewModel.getErrorLiveEvent().observeSafe(viewLifecycleOwner) {
-            snackbarComponent.displayError(requireContext(), it, requireView())
-            binding {
-                characterListRecyclerView.hide()
-                characterListEmptyPlaceholderText.show()
-            }
-        }
     }
 
     private fun setupRecyclerView() {
@@ -80,6 +70,24 @@ class CharacterListFragment :
             }
         }
         characterListAdapter.onItemClicked = ::onCharacterClicked
+        characterListAdapter.addLoadStateListener { loadState ->
+            if (loadState.source.refresh is LoadState.Error) {
+                snackbarComponent.displayError(
+                    requireContext(),
+                    CharacterNotFoundException(),
+                    requireView()
+                )
+                binding {
+                    characterListRecyclerView.hide()
+                    characterListEmptyPlaceholderText.show()
+                }
+            } else {
+                binding {
+                    characterListRecyclerView.show()
+                    characterListEmptyPlaceholderText.hide()
+                }
+            }
+        }
     }
 
     private fun setupRefreshLayout() {

@@ -4,8 +4,8 @@ import com.sgranjon.kotlinexampleproject.data.entity.db.CharacterDBEntity
 
 
 interface DbManager {
-    fun getAllCharacters(): List<CharacterDBEntity>
-    fun getCharacterById(id: Int): CharacterDBEntity?
-    fun saveCharacterList(characters: List<CharacterDBEntity>)
-    fun deleteCharacterList()
+    suspend fun getAllCharacters(): List<CharacterDBEntity>
+    suspend fun getCharacterById(id: Int): CharacterDBEntity?
+    suspend fun saveCharacterList(characters: List<CharacterDBEntity>)
+    suspend fun deleteCharacterList()
 }

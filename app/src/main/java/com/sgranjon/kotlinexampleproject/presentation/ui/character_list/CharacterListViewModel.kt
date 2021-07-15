@@ -2,30 +2,35 @@ package com.sgranjon.kotlinexampleproject.presentation.ui.character_list
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import androidx.paging.PagingData
+import androidx.paging.cachedIn
+import androidx.paging.map
 import com.sgranjon.kotlinexampleproject.data.repository.CharacterRepository
-import com.sgranjon.kotlinexampleproject.presentation.base.SingleLiveEvent
-import com.sgranjon.kotlinexampleproject.presentation.base.viewmodel.BaseViewModel
-import com.sgranjon.kotlinexampleproject.presentation.extensions.subscribeByIO
 import com.sgranjon.kotlinexampleproject.presentation.wrapper.CharacterViewDataWrapper
 import javax.inject.Inject
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
-class CharacterListViewModel @Inject constructor(private val characterRepository: CharacterRepository): BaseViewModel() {
+class CharacterListViewModel @Inject constructor(private val characterRepository: CharacterRepository) :
+    ViewModel() {
 
-    private val characterListLiveData = MutableLiveData<List<CharacterViewDataWrapper>>()
-    private val errorLiveEvent = SingleLiveEvent<Throwable>()
+    private val characterPagingDataLiveData =
+        MutableLiveData<PagingData<CharacterViewDataWrapper>>()
 
-    fun retrieveCharacterList(){
-        characterRepository.retrieveCharacterList().subscribeByIO(
-            onSuccess = { list ->
-                characterListLiveData.postValue(list.map { CharacterViewDataWrapper(it) })
-            },
-            onError = {
-                errorLiveEvent.postValue(it)
+    @ExperimentalCoroutinesApi
+    fun retrieveCharacterList() {
+        viewModelScope.launch {
+            characterRepository.retrieveCharacterList().cachedIn(this).collectLatest { pagingData ->
+                characterPagingDataLiveData.postValue(pagingData.map { CharacterViewDataWrapper(it) })
             }
-        ).addToComposite()
+        }
     }
 
-    fun getCharacterListLiveData(): LiveData<List<CharacterViewDataWrapper>> = characterListLiveData
-    fun getErrorLiveEvent(): LiveData<Throwable> = errorLiveEvent
+    fun getCharacterPagingDataLiveData(): LiveData<PagingData<CharacterViewDataWrapper>> =
+        characterPagingDataLiveData
+
 
 }
