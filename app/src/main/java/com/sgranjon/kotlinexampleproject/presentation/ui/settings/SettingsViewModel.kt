@@ -1,8 +1,8 @@
 package com.sgranjon.kotlinexampleproject.presentation.ui.settings
 
-import com.sgranjon.kotlinexampleproject.presentation.base.viewmodel.BaseViewModel
+import androidx.lifecycle.ViewModel
 import javax.inject.Inject
 
-class SettingsViewModel @Inject constructor(): BaseViewModel() {
+class SettingsViewModel @Inject constructor() : ViewModel() {
 
 }

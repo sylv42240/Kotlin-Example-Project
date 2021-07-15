@@ -3,7 +3,6 @@ package com.sgranjon.kotlinexampleproject.data.business
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
-import androidx.paging.rxjava2.observable
 import com.sgranjon.kotlinexampleproject.data.business.pager.CharacterPagingSource
 import com.sgranjon.kotlinexampleproject.data.entity.local.CharacterEntity
 import com.sgranjon.kotlinexampleproject.data.entity.local.EpisodeEntity
@@ -13,10 +12,12 @@ import com.sgranjon.kotlinexampleproject.data.manager.db.DbManager
 import com.sgranjon.kotlinexampleproject.data.mapper.db.CharacterDBEntityDataMapper
 import com.sgranjon.kotlinexampleproject.data.mapper.remote.EpisodeRemoteEntityDataMapper
 import dagger.Reusable
-import io.reactivex.Observable
-import io.reactivex.Single
 import javax.inject.Inject
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
+
+private const val API_PAGE_SIZE = 20
 
 @Reusable
 class CharacterBusinessHelper @Inject constructor(
@@ -28,35 +29,48 @@ class CharacterBusinessHelper @Inject constructor(
 ) {
 
     @ExperimentalCoroutinesApi
-    fun retrieveCharacterList(): Observable<PagingData<CharacterEntity>> {
+    fun retrieveCharacterList(): Flow<PagingData<CharacterEntity>> {
         return Pager(
             config = PagingConfig(
-                pageSize = 20,
-                enablePlaceholders = true
+                pageSize = API_PAGE_SIZE,
+                prefetchDistance = 2
             ),
             pagingSourceFactory = { characterPagingSource }
-        ).observable
+        ).flow
     }
 
-    fun retrieveCharacterById(id: Int): CharacterEntity {
-        return dbManager.getCharacterById(id)?.let {
-            characterDBEntityDataMapper.transformDBToEntity(
-                it
-            )
-        } ?: throw CharacterNotFoundException()
+    fun retrieveCharacterById(id: Int): Flow<CharacterEntity> {
+        return flow {
+            emit(dbManager.getCharacterById(id)?.let {
+                characterDBEntityDataMapper.transformDBToEntity(
+                    it
+                )
+            } ?: throw CharacterNotFoundException())
+        }
     }
 
-    fun retrieveCharacterEpisodeList(id: Int): Single<List<EpisodeEntity>> {
-        val character = dbManager.getCharacterById(id) ?: throw CharacterNotFoundException()
-        val episodeIds = character.episodeList.joinToString { it.split("/").last() }
-        return if (character.episodeList.size == 1) {
-            apiManager.getCharacterEpisode(episodeIds).map {
-                listOf(episodeRemoteEntityDataMapper.transformRemoteToEntity(it))
+    fun retrieveCharacterEpisodeList(id: Int): Flow<List<EpisodeEntity>> {
+        return flow {
+            val character = dbManager.getCharacterById(id) ?: throw CharacterNotFoundException()
+            val episodeIds = character.episodeList.joinToString { it.split("/").last() }
+            val episodeList = mutableListOf<EpisodeEntity>()
+            emit(episodeList)
+            if (character.episodeList.size == 1) {
+                episodeList.add(
+                    episodeRemoteEntityDataMapper.transformRemoteToEntity(
+                        apiManager.getCharacterEpisode(
+                            episodeIds
+                        )
+                    )
+                )
+            } else {
+                episodeList.addAll(
+                    episodeRemoteEntityDataMapper.transformRemoteEntityList(
+                        apiManager.getCharacterEpisodeList(episodeIds)
+                    )
+                )
             }
-        } else {
-            apiManager.getCharacterEpisodeList(episodeIds).map {
-                episodeRemoteEntityDataMapper.transformRemoteEntityList(it)
-            }
+            emit(episodeList.toList())
         }
     }
 }

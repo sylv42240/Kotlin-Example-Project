@@ -1,15 +1,15 @@
 package com.sgranjon.kotlinexampleproject.data.business.pager
 
+import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import androidx.paging.rxjava2.RxPagingSource
 import com.sgranjon.kotlinexampleproject.data.entity.local.CharacterEntity
 import com.sgranjon.kotlinexampleproject.data.manager.api.ApiManager
 import com.sgranjon.kotlinexampleproject.data.manager.db.DbManager
 import com.sgranjon.kotlinexampleproject.data.mapper.db.CharacterDBEntityDataMapper
 import com.sgranjon.kotlinexampleproject.data.mapper.remote.CharacterRemoteEntityDataMapper
 import dagger.Reusable
-import io.reactivex.Single
 import javax.inject.Inject
+import okio.IOException
 
 @Reusable
 class CharacterPagingSource @Inject constructor(
@@ -18,29 +18,35 @@ class CharacterPagingSource @Inject constructor(
     private val characterRemoteEntityDataMapper: CharacterRemoteEntityDataMapper,
     private val characterDBEntityDataMapper: CharacterDBEntityDataMapper
 ) :
-    RxPagingSource<Int, CharacterEntity>() {
+    PagingSource<Int, CharacterEntity>() {
 
-    override fun loadSingle(params: LoadParams<Int>): Single<LoadResult<Int, CharacterEntity>> {
+    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, CharacterEntity> {
         val nextPageNumber = params.key ?: 1
-        return apiManager.getAllCharacters(nextPageNumber).doOnSuccess {
-            val characterEntity =
-                characterRemoteEntityDataMapper.transformRemoteEntityList(it.results)
+        return try {
+            val response = apiManager.getAllCharacters(nextPageNumber)
+            val characterRemoteList = response.results
+            val characterList =
+                characterRemoteEntityDataMapper.transformRemoteEntityList(characterRemoteList)
             dbManager.saveCharacterList(
                 characterDBEntityDataMapper.transformEntityList(
-                    characterEntity
+                    characterList
                 )
             )
-        }.map {
             LoadResult.Page(
-                data = characterRemoteEntityDataMapper.transformRemoteEntityList(it.results),
-                prevKey = getPageNumberFromUrl(it.info.prev),
-                nextKey = getPageNumberFromUrl(it.info.next)
+                data = characterList,
+                prevKey = getPageNumberFromUrl(response.info.prev),
+                nextKey = getPageNumberFromUrl(response.info.next)
             )
+        } catch (e: IOException) {
+            LoadResult.Error(e)
         }
     }
 
     override fun getRefreshKey(state: PagingState<Int, CharacterEntity>): Int? {
-        return null
+        return state.anchorPosition?.let { anchorPosition ->
+            state.closestPageToPosition(anchorPosition)?.prevKey?.plus(1)
+                ?: state.closestPageToPosition(anchorPosition)?.nextKey?.minus(1)
+        }
     }
 
     private fun getPageNumberFromUrl(url: String?) = url?.split("=")?.last()?.toIntOrNull()

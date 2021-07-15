@@ -7,14 +7,12 @@ import com.sgranjon.kotlinexampleproject.data.manager.api.service.ApiRetrofitSer
 import dagger.Module
 import dagger.Provides
 import dagger.Reusable
+import javax.inject.Singleton
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.CallAdapter
 import retrofit2.Converter
 import retrofit2.Retrofit
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
-import javax.inject.Singleton
 
 @Module
 object NetworkModule {
@@ -26,13 +24,11 @@ object NetworkModule {
     @Singleton
     fun retrofitService(
         okHttpClient: OkHttpClient,
-        callAdapterFactory: CallAdapter.Factory,
         converter: Converter.Factory
     ): ApiRetrofitService =
         Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_URL)
             .client(okHttpClient)
-            .addCallAdapterFactory(callAdapterFactory)
             .addConverterFactory(converter)
             .build()
             .create(ApiRetrofitService::class.java)
@@ -51,13 +47,6 @@ object NetworkModule {
         builder.addInterceptor(loggingInterceptor)
         return builder.build()
     }
-
-    /**
-     * Retrofit Adapter
-     */
-    @Provides
-    @Reusable
-    fun provideRxCallAdapter(): CallAdapter.Factory = RxJava2CallAdapterFactory.create()
 
     /**
      * Retrofit Converter

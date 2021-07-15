@@ -2,40 +2,41 @@ package com.sgranjon.kotlinexampleproject.presentation.ui.character_detail
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.sgranjon.kotlinexampleproject.data.repository.CharacterRepository
 import com.sgranjon.kotlinexampleproject.presentation.base.SingleLiveEvent
-import com.sgranjon.kotlinexampleproject.presentation.base.viewmodel.BaseViewModel
-import com.sgranjon.kotlinexampleproject.presentation.extensions.subscribeByIO
 import com.sgranjon.kotlinexampleproject.presentation.wrapper.CharacterViewDataWrapper
 import com.sgranjon.kotlinexampleproject.presentation.wrapper.EpisodeViewDataWrapper
 import javax.inject.Inject
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 class CharacterDetailViewModel @Inject constructor(private val characterRepository: CharacterRepository) :
-    BaseViewModel() {
+    ViewModel() {
     private val characterDetailLiveData = MutableLiveData<CharacterViewDataWrapper>()
     private val episodeListLiveData = MutableLiveData<List<EpisodeViewDataWrapper>>()
     private val errorLiveEvent = SingleLiveEvent<Throwable>()
 
     fun retrieveCharacterDetail(id: Int) {
-        characterRepository.retrieveCharacterById(id).subscribeByIO(
-            onSuccess = {
-                characterDetailLiveData.postValue(CharacterViewDataWrapper(it))
-            },
-            onError = {
+        viewModelScope.launch {
+            characterRepository.retrieveCharacterById(id).catch {
                 errorLiveEvent.postValue(it)
+            }.collect {
+                characterDetailLiveData.postValue(CharacterViewDataWrapper(it))
             }
-        ).addToComposite()
+        }
     }
 
     fun retrieveCharacterEpisodeList(id: Int) {
-        characterRepository.retrieveCharacterEpisodeList(id).subscribeByIO(
-            onSuccess = { episodes ->
-                episodeListLiveData.postValue(episodes.map { EpisodeViewDataWrapper(it) })
-            },
-            onError = {
+        viewModelScope.launch {
+            characterRepository.retrieveCharacterEpisodeList(id).catch {
                 errorLiveEvent.postValue(it)
+            }.collect { episodes ->
+                episodeListLiveData.postValue(episodes.map { EpisodeViewDataWrapper(it) })
             }
-        ).addToComposite()
+        }
     }
 
     fun getCharacterDetailLiveData(): LiveData<CharacterViewDataWrapper> = characterDetailLiveData

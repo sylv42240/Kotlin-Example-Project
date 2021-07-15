@@ -9,19 +9,19 @@ class DbManagerImpl @Inject constructor(appDatabase: AppDatabase) : DbManager {
 
     private val characterDao: CharacterDao = appDatabase.characterDao()
 
-    override fun getAllCharacters(): List<CharacterDBEntity> {
+    override suspend fun getAllCharacters(): List<CharacterDBEntity> {
         return characterDao.getAll()
     }
 
-    override fun getCharacterById(id: Int): CharacterDBEntity? {
+    override suspend fun getCharacterById(id: Int): CharacterDBEntity? {
         return characterDao.getById(id)
     }
 
-    override fun saveCharacterList(characters: List<CharacterDBEntity>) {
+    override suspend fun saveCharacterList(characters: List<CharacterDBEntity>) {
         characterDao.insertAll(characters)
     }
 
-    override fun deleteCharacterList() {
+    override suspend fun deleteCharacterList() {
         characterDao.deleteAll()
     }
 

@@ -10,14 +10,14 @@ import com.sgranjon.kotlinexampleproject.data.entity.db.CharacterDBEntity
 interface CharacterDao {
 
     @Query("Select * from CharacterDBEntity")
-    fun getAll(): List<CharacterDBEntity>
+    suspend fun getAll(): List<CharacterDBEntity>
 
     @Query("Select * from CharacterDBEntity where id like :id")
-    fun getById(id: Int): CharacterDBEntity?
+    suspend fun getById(id: Int): CharacterDBEntity?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(characters: List<CharacterDBEntity>)
+    suspend fun insertAll(characters: List<CharacterDBEntity>)
 
     @Query("DELETE FROM CharacterDBEntity")
-    fun deleteAll()
+    suspend fun deleteAll()
 }

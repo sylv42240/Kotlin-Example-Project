@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.paging.map
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.sgranjon.kotlinexampleproject.databinding.FragmentCharacterListBinding
@@ -16,6 +17,7 @@ import com.sgranjon.kotlinexampleproject.presentation.extensions.show
 import com.sgranjon.kotlinexampleproject.presentation.ui.character_list.item.CharacterListAdapter
 import com.sgranjon.kotlinexampleproject.presentation.ui.main.navigator.CharacterListNavigatorListener
 import javax.inject.Inject
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 class CharacterListFragment :
     BaseVMFragment<CharacterListViewModel, FragmentCharacterListBinding>() {
@@ -34,6 +36,7 @@ class CharacterListFragment :
     @Inject
     lateinit var navigatorListener: CharacterListNavigatorListener
 
+    @ExperimentalCoroutinesApi
     override fun onAttach(context: Context) {
         super.onAttach(context)
         viewModel.retrieveCharacterList()
@@ -43,15 +46,11 @@ class CharacterListFragment :
         super.onViewCreated(view, savedInstanceState)
         observeCharacterList()
         setupRecyclerView()
-        setupRefreshLayout()
     }
 
     private fun observeCharacterList() {
         viewModel.getCharacterPagingDataLiveData().observeSafe(viewLifecycleOwner) { characterList ->
             characterListAdapter.submitData(lifecycle, characterList)
-            binding {
-                characterListSwipeLayout.isRefreshing = false
-            }
         }
         viewModel.getErrorLiveEvent().observeSafe(viewLifecycleOwner) {
             snackbarComponent.displayError(requireContext(), it, requireView())
@@ -72,12 +71,6 @@ class CharacterListFragment :
             }
         }
         characterListAdapter.onItemClicked = ::onCharacterClicked
-    }
-
-    private fun setupRefreshLayout() {
-        binding.characterListSwipeLayout.setOnRefreshListener {
-            viewModel.retrieveCharacterList()
-        }
     }
 
     private fun onCharacterClicked(id: Int) {

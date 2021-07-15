@@ -10,9 +10,8 @@ import javax.inject.Inject
 
 
 class CharacterListAdapter @Inject constructor() :
-    PagingDataAdapter<CharacterViewDataWrapper, CharacterViewHolder>(COMPARATOR) {
+    PagingDataAdapter<CharacterViewDataWrapper, CharacterViewHolder>(CharacterComparator) {
 
-    private val items = mutableListOf<CharacterViewDataWrapper>()
 
     var onItemClicked: (Int) -> Unit = {}
 
@@ -27,13 +26,11 @@ class CharacterListAdapter @Inject constructor() :
     }
 
     override fun onBindViewHolder(holder: CharacterViewHolder, position: Int) {
-        holder.bind(items[position], onItemClicked)
+        getItem(position)?.let { holder.bind(it, onItemClicked) }
     }
-
-    override fun getItemCount(): Int = items.size
-
+    
     companion object {
-        private val COMPARATOR = object : DiffUtil.ItemCallback<CharacterViewDataWrapper>() {
+        private val CharacterComparator = object : DiffUtil.ItemCallback<CharacterViewDataWrapper>() {
             override fun areItemsTheSame(
                 oldItem: CharacterViewDataWrapper,
                 newItem: CharacterViewDataWrapper

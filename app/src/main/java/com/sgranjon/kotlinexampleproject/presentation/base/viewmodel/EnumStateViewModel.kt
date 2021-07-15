@@ -2,8 +2,9 @@ package com.sgranjon.kotlinexampleproject.presentation.base.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 
-abstract class EnumStateViewModel<T : Enum<T>> : BaseViewModel() {
+abstract class EnumStateViewModel<T : Enum<T>> : ViewModel() {
 
     protected abstract var currentViewState: T
 

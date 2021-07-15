@@ -1,3 +1,5 @@
 package com.sgranjon.kotlinexampleproject.data.exception
 
-class CharacterNotFoundException : RuntimeException()
+import okio.IOException
+
+class CharacterNotFoundException : IOException()
