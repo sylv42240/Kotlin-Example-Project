@@ -1,38 +1,41 @@
 package com.sgranjon.kotlinexampleproject.data.business
 
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingData
+import androidx.paging.rxjava2.observable
+import com.sgranjon.kotlinexampleproject.data.business.pager.CharacterPagingSource
 import com.sgranjon.kotlinexampleproject.data.entity.local.CharacterEntity
 import com.sgranjon.kotlinexampleproject.data.entity.local.EpisodeEntity
 import com.sgranjon.kotlinexampleproject.data.exception.CharacterNotFoundException
 import com.sgranjon.kotlinexampleproject.data.manager.api.ApiManager
 import com.sgranjon.kotlinexampleproject.data.manager.db.DbManager
 import com.sgranjon.kotlinexampleproject.data.mapper.db.CharacterDBEntityDataMapper
-import com.sgranjon.kotlinexampleproject.data.mapper.remote.CharacterRemoteEntityDataMapper
 import com.sgranjon.kotlinexampleproject.data.mapper.remote.EpisodeRemoteEntityDataMapper
 import dagger.Reusable
+import io.reactivex.Observable
 import io.reactivex.Single
 import javax.inject.Inject
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 @Reusable
 class CharacterBusinessHelper @Inject constructor(
     private val apiManager: ApiManager,
     private val dbManager: DbManager,
-    private val characterRemoteEntityDataMapper: CharacterRemoteEntityDataMapper,
     private val characterDBEntityDataMapper: CharacterDBEntityDataMapper,
-    private val episodeRemoteEntityDataMapper: EpisodeRemoteEntityDataMapper
+    private val episodeRemoteEntityDataMapper: EpisodeRemoteEntityDataMapper,
+    private val characterPagingSource: CharacterPagingSource
 ) {
-    fun retrieveCharacterList(): Single<List<CharacterEntity>> {
-        return apiManager.getAllCharacters().map {
-            characterRemoteEntityDataMapper.transformRemoteEntityList(it.results)
-        }.doOnSuccess {
-            dbManager.saveCharacterList(characterDBEntityDataMapper.transformEntityList(it))
-        }.onErrorReturn {
-            val characterList = retrieveCharacterListFromDB()
-            if (characterList.isEmpty()) {
-                throw it
-            } else {
-                return@onErrorReturn characterList
-            }
-        }
+
+    @ExperimentalCoroutinesApi
+    fun retrieveCharacterList(): Observable<PagingData<CharacterEntity>> {
+        return Pager(
+            config = PagingConfig(
+                pageSize = 20,
+                enablePlaceholders = true
+            ),
+            pagingSourceFactory = { characterPagingSource }
+        ).observable
     }
 
     fun retrieveCharacterById(id: Int): CharacterEntity {
@@ -54,15 +57,6 @@ class CharacterBusinessHelper @Inject constructor(
             apiManager.getCharacterEpisodeList(episodeIds).map {
                 episodeRemoteEntityDataMapper.transformRemoteEntityList(it)
             }
-        }
-    }
-
-    private fun retrieveCharacterListFromDB(): List<CharacterEntity> {
-        val characterList = dbManager.getAllCharacters()
-        if (characterList.isEmpty()) {
-            throw CharacterNotFoundException()
-        } else {
-            return characterDBEntityDataMapper.transformDBEntityList(characterList)
         }
     }
 }

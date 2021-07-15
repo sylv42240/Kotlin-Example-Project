@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.sgranjon.kotlinexampleproject.databinding.FragmentCharacterListBinding
@@ -48,17 +47,10 @@ class CharacterListFragment :
     }
 
     private fun observeCharacterList() {
-        viewModel.getCharacterListLiveData().observeSafe(viewLifecycleOwner) { characterList ->
-            characterListAdapter.setItems(characterList)
+        viewModel.getCharacterPagingDataLiveData().observeSafe(viewLifecycleOwner) { characterList ->
+            characterListAdapter.submitData(lifecycle, characterList)
             binding {
                 characterListSwipeLayout.isRefreshing = false
-                if (characterList.isEmpty()) {
-                    characterListRecyclerView.hide()
-                    characterListEmptyPlaceholderText.show()
-                } else {
-                    characterListRecyclerView.show()
-                    characterListEmptyPlaceholderText.hide()
-                }
             }
         }
         viewModel.getErrorLiveEvent().observeSafe(viewLifecycleOwner) {

@@ -9,8 +9,8 @@ import javax.inject.Inject
 class ApiManagerImpl @Inject constructor(private val apiRetrofitService: ApiRetrofitService) :
     ApiManager {
 
-    override fun getAllCharacters(): Single<CharacterListResultRemoteEntity> {
-        return apiRetrofitService.getAllCharacters()
+    override fun getAllCharacters(page: Int): Single<CharacterListResultRemoteEntity> {
+        return apiRetrofitService.getAllCharacters(page)
     }
 
     override fun getCharacterEpisodeList(ids: String): Single<List<EpisodeRemoteEntity>> {

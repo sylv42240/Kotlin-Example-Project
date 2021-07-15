@@ -5,7 +5,7 @@ import com.sgranjon.kotlinexampleproject.data.entity.remote.EpisodeRemoteEntity
 import io.reactivex.Single
 
 interface ApiManager {
-    fun getAllCharacters(): Single<CharacterListResultRemoteEntity>
+    fun getAllCharacters(page: Int): Single<CharacterListResultRemoteEntity>
     fun getCharacterEpisodeList(ids: String): Single<List<EpisodeRemoteEntity>>
     fun getCharacterEpisode(id: String): Single<EpisodeRemoteEntity>
 }

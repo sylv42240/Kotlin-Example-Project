@@ -45,6 +45,8 @@ ext {
     retrofit_version = "2.9.0"
     ok_http_version = "4.9.0"
 
+    paging_version = "3.0.0"
+
     room_version = "2.2.6"
 
     rx_android_version = "2.1.1"
