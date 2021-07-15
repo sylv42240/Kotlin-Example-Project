@@ -17,8 +17,7 @@ class CharacterPagingSource @Inject constructor(
     private val dbManager: DbManager,
     private val characterRemoteEntityDataMapper: CharacterRemoteEntityDataMapper,
     private val characterDBEntityDataMapper: CharacterDBEntityDataMapper
-) :
-    PagingSource<Int, CharacterEntity>() {
+) : PagingSource<Int, CharacterEntity>() {
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, CharacterEntity> {
         val nextPageNumber = params.key ?: 1
