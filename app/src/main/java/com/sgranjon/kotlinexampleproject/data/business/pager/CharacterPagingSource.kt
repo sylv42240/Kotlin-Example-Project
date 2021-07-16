@@ -3,6 +3,7 @@ package com.sgranjon.kotlinexampleproject.data.business.pager
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.sgranjon.kotlinexampleproject.data.entity.local.CharacterEntity
+import com.sgranjon.kotlinexampleproject.data.extensions.getPageNumberFromUrl
 import com.sgranjon.kotlinexampleproject.data.manager.api.ApiManager
 import com.sgranjon.kotlinexampleproject.data.manager.db.DbManager
 import com.sgranjon.kotlinexampleproject.data.mapper.db.CharacterDBEntityDataMapper
@@ -47,7 +48,5 @@ class CharacterPagingSource @Inject constructor(
                 ?: state.closestPageToPosition(anchorPosition)?.nextKey?.minus(1)
         }
     }
-
-    private fun getPageNumberFromUrl(url: String?) = url?.split("=")?.last()?.toIntOrNull()
 
 }
