@@ -20,6 +20,7 @@
     <string name="menu_character_list_title">Personnages</string>
     <string name="menu_episode_list_title">Episodes</string>
     <string name="menu_location_list_title">Lieux</string>
+    <string name="menu_theme_update_title">Changer de thème</string>
 
     <!-- Character -->
     <string name="character_list_empty_label">Impossible de récupérer la liste des personnages</string>
@@ -50,5 +51,9 @@
     <string name="location_list_empty_label">Impossible de récupérer la liste des lieux</string>
     <string name="location_resident_count">Résidents : %d</string>
     <string name="location_dimension_unknown_label">Dimension inconnue</string>
+
+    <!-- Theme -->
+    <string name="dialog_update_theme_title">Changer de thème</string>
+    <string name="dialog_update_theme_message">Êtes vous sûr de vouloir changer de thème ?</string>
 
 </resources>

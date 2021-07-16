@@ -27,7 +27,7 @@
             app:layout_constraintVertical_bias="0"
             app:layout_constraintVertical_chainStyle="packed"
             app:shapeAppearance="?attr/shapeAppearanceCornerSize50Percent"
-            app:strokeColor="?attr/colorPrimary"
+            app:strokeColor="?attr/iconBackground"
             app:strokeWidth="@dimen/character_image_stroke_width" />
 
         <com.google.android.material.textview.MaterialTextView
@@ -35,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/base_margin"
-            android:textAppearance="?attr/textAppearanceTitle2Dark"
+            android:textAppearance="?attr/textAppearanceTitle2"
             app:layout_constraintBottom_toTopOf="@id/character_detail_information_card"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -63,7 +63,7 @@
                     android:layout_marginTop="@dimen/base_margin"
                     android:layout_marginEnd="@dimen/base_margin"
                     android:text="@string/character_gender_label"
-                    android:textAppearance="?attr/textAppearanceSubtitle1Dark"
+                    android:textAppearance="?attr/textAppearanceSubtitle1"
                     app:layout_constraintEnd_toStartOf="@id/character_detail_information_guideline"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -72,7 +72,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/base_margin"
-                    android:textAppearance="?attr/textAppearanceSubtitle2Dark"
+                    android:textAppearance="?attr/textAppearanceSubtitle2"
                     app:layout_constraintBottom_toBottomOf="@id/character_detail_gender_label"
                     app:layout_constraintStart_toEndOf="@id/character_detail_information_guideline"
                     app:layout_constraintTop_toTopOf="@id/character_detail_gender_label"
@@ -96,7 +96,7 @@
                     android:layout_marginTop="@dimen/base_margin"
                     android:layout_marginEnd="@dimen/base_margin"
                     android:text="@string/character_status_label"
-                    android:textAppearance="?attr/textAppearanceSubtitle1Dark"
+                    android:textAppearance="?attr/textAppearanceSubtitle1"
                     app:layout_constraintEnd_toStartOf="@id/character_detail_information_guideline"
                     app:layout_constraintTop_toBottomOf="@id/character_detail_gender_divider" />
 
@@ -105,7 +105,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/base_margin"
-                    android:textAppearance="?attr/textAppearanceSubtitle2Dark"
+                    android:textAppearance="?attr/textAppearanceSubtitle2"
                     app:layout_constraintBottom_toBottomOf="@id/character_detail_status_label"
                     app:layout_constraintStart_toEndOf="@id/character_detail_information_guideline"
                     app:layout_constraintTop_toTopOf="@id/character_detail_status_label"
@@ -129,7 +129,7 @@
                     android:layout_marginTop="@dimen/base_margin"
                     android:layout_marginEnd="@dimen/base_margin"
                     android:text="@string/character_species_label"
-                    android:textAppearance="?attr/textAppearanceSubtitle1Dark"
+                    android:textAppearance="?attr/textAppearanceSubtitle1"
                     app:layout_constraintEnd_toStartOf="@id/character_detail_information_guideline"
                     app:layout_constraintTop_toBottomOf="@id/character_detail_status_divider" />
 
@@ -138,7 +138,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/base_margin"
-                    android:textAppearance="?attr/textAppearanceSubtitle2Dark"
+                    android:textAppearance="?attr/textAppearanceSubtitle2"
                     app:layout_constraintBottom_toBottomOf="@id/character_detail_species_label"
                     app:layout_constraintStart_toEndOf="@id/character_detail_information_guideline"
                     app:layout_constraintTop_toTopOf="@id/character_detail_species_label"
@@ -162,7 +162,7 @@
                     android:layout_marginTop="@dimen/base_margin"
                     android:layout_marginEnd="@dimen/base_margin"
                     android:text="@string/character_origin_label"
-                    android:textAppearance="?attr/textAppearanceSubtitle1Dark"
+                    android:textAppearance="?attr/textAppearanceSubtitle1"
                     app:layout_constraintEnd_toStartOf="@id/character_detail_information_guideline"
                     app:layout_constraintTop_toBottomOf="@id/character_detail_species_divider" />
 
@@ -171,7 +171,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/base_margin"
-                    android:textAppearance="?attr/textAppearanceSubtitle2Dark"
+                    android:textAppearance="?attr/textAppearanceSubtitle2"
                     app:layout_constraintBottom_toBottomOf="@id/character_detail_origin_label"
                     app:layout_constraintStart_toEndOf="@id/character_detail_information_guideline"
                     app:layout_constraintTop_toTopOf="@id/character_detail_origin_label"
@@ -196,7 +196,7 @@
                     android:layout_marginEnd="@dimen/base_margin"
                     android:layout_marginBottom="@dimen/base_margin"
                     android:text="@string/character_episode_count_label"
-                    android:textAppearance="?attr/textAppearanceSubtitle1Dark"
+                    android:textAppearance="?attr/textAppearanceSubtitle1"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/character_detail_information_guideline"
                     app:layout_constraintTop_toBottomOf="@id/character_detail_origin_divider" />
@@ -206,7 +206,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/base_margin"
-                    android:textAppearance="?attr/textAppearanceSubtitle2Dark"
+                    android:textAppearance="?attr/textAppearanceSubtitle2"
                     app:layout_constraintBottom_toBottomOf="@id/character_detail_episode_count_label"
                     app:layout_constraintStart_toEndOf="@id/character_detail_information_guideline"
                     app:layout_constraintTop_toTopOf="@id/character_detail_episode_count_label"

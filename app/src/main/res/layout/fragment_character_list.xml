@@ -28,7 +28,7 @@
             android:layout_marginVertical="@dimen/base_margin_double"
             android:text="@string/character_list_empty_label"
             android:textAlignment="center"
-            android:textAppearance="?attr/textAppearanceTitle2Dark"
+            android:textAppearance="?attr/textAppearanceTitle2"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

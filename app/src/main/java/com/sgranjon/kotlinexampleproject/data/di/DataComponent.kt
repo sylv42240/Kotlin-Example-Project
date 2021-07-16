@@ -7,6 +7,7 @@ import com.sgranjon.kotlinexampleproject.data.di.module.NetworkModule
 import com.sgranjon.kotlinexampleproject.data.repository.CharacterRepository
 import com.sgranjon.kotlinexampleproject.data.repository.EpisodeRepository
 import com.sgranjon.kotlinexampleproject.data.repository.LocationRepository
+import com.sgranjon.kotlinexampleproject.data.repository.SettingsRepository
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
@@ -22,6 +23,7 @@ interface DataComponent {
     fun characterRepository(): CharacterRepository
     fun episodeRepository(): EpisodeRepository
     fun locationRepository(): LocationRepository
+    fun settingsRepository(): SettingsRepository
 
     @Component.Factory
     interface Factory {

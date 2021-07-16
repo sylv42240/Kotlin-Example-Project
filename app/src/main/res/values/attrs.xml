@@ -10,19 +10,12 @@
     <attr name="shapeAppearanceCornerSize50Percent" format="reference" />
 
     <!-- Text Appearance -->
-    <attr name="textAppearanceBody1Light" format="reference" />
-    <attr name="textAppearanceBody2Light" format="reference" />
-    <attr name="textAppearanceTitle1Light" format="reference" />
-    <attr name="textAppearanceTitle2Light" format="reference" />
-    <attr name="textAppearanceSubtitle1Light" format="reference" />
-    <attr name="textAppearanceSubtitle2Light" format="reference" />
-
-    <attr name="textAppearanceBody1Dark" format="reference" />
-    <attr name="textAppearanceBody2Dark" format="reference" />
-    <attr name="textAppearanceTitle1Dark" format="reference" />
-    <attr name="textAppearanceTitle2Dark" format="reference" />
-    <attr name="textAppearanceSubtitle1Dark" format="reference" />
-    <attr name="textAppearanceSubtitle2Dark" format="reference" />
+    <attr name="textAppearanceBody1" format="reference" />
+    <attr name="textAppearanceBody2" format="reference" />
+    <attr name="textAppearanceTitle1" format="reference" />
+    <attr name="textAppearanceTitle2" format="reference" />
+    <attr name="textAppearanceSubtitle1" format="reference" />
+    <attr name="textAppearanceSubtitle2" format="reference" />
 
     <!-- Action Bar -->
     <attr name="baseToolbar" format="reference" />
@@ -35,5 +28,6 @@
 
     <!-- Background -->
     <attr name="colorBackground" format="color" />
+    <attr name="iconBackground" format="color" />
 
 </resources>

@@ -8,7 +8,7 @@
 
     <!-- Text Appearance -->
     <style name="KotlinExampleProject.TextAppearance.Dark" parent="">
-        <item name="android:textColor">?attr/colorOnSecondary</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="KotlinExampleProject.TextAppearance.Dark.Body1" parent="KotlinExampleProject.TextAppearance.Dark">
@@ -42,7 +42,7 @@
     </style>
 
     <style name="KotlinExampleProject.TextAppearance.Light" parent="">
-        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 
     <style name="KotlinExampleProject.TextAppearance.Light.Body1" parent="KotlinExampleProject.TextAppearance.Light">

@@ -23,7 +23,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:shapeAppearance="?attr/shapeAppearanceCornerSize50Percent"
-            app:strokeColor="?attr/colorPrimary"
+            app:strokeColor="?attr/iconBackground"
             app:strokeWidth="@dimen/character_image_stroke_width" />
 
         <com.google.android.material.textview.MaterialTextView
@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/base_margin"
             android:layout_marginTop="@dimen/base_margin"
-            android:textAppearance="?attr/textAppearanceTitle1Dark"
+            android:textAppearance="?attr/textAppearanceTitle1"
             android:textColor="?attr/colorOnSecondary"
             app:layout_constraintEnd_toStartOf="@id/view_character_item_right_arrow_icon"
             app:layout_constraintStart_toEndOf="@id/view_character_item_image"
@@ -57,7 +57,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/base_margin"
-            android:textAppearance="?attr/textAppearanceSubtitle1Dark"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
             app:layout_constraintBottom_toBottomOf="@id/view_character_item_gender_icon"
             app:layout_constraintEnd_toStartOf="@id/view_character_item_right_arrow_icon"
             app:layout_constraintStart_toEndOf="@id/view_character_item_gender_icon"
@@ -80,7 +80,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/base_margin"
-            android:textAppearance="?attr/textAppearanceSubtitle1Dark"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
             app:layout_constraintBottom_toBottomOf="@id/view_character_item_status_icon"
             app:layout_constraintEnd_toStartOf="@id/view_character_item_right_arrow_icon"
             app:layout_constraintStart_toEndOf="@id/view_character_item_status_icon"

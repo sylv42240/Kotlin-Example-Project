@@ -15,5 +15,24 @@
         <item name="snackbarSuccessBackground">@color/green</item>
         <item name="snackbarWarningBackground">@color/orange</item>
         <item name="snackbarErrorBackground">@color/red</item>
+        <!-- Shape Appearance -->
+        <item name="shapeAppearanceCornerSize50Percent">@style/KotlinExampleProject.ShapeAppearance.CornerSize50Percent</item>
+        <!-- Text Appearance -->
+        <item name="textAppearanceBody1">@style/KotlinExampleProject.TextAppearance.Light.Body1</item>
+        <item name="textAppearanceBody2">@style/KotlinExampleProject.TextAppearance.Light.Body2</item>
+        <item name="textAppearanceTitle1">@style/KotlinExampleProject.TextAppearance.Light.Title1</item>
+        <item name="textAppearanceTitle2">@style/KotlinExampleProject.TextAppearance.Light.Title2</item>
+        <item name="textAppearanceSubtitle1">@style/KotlinExampleProject.TextAppearance.Light.Subtitle1</item>
+        <item name="textAppearanceSubtitle2">@style/KotlinExampleProject.TextAppearance.Light.Subtitle2</item>
+        <!-- Action Bar -->
+        <item name="baseToolbar">@style/KotlinExampleProject.Toolbar</item>
+        <item name="toolbarNavigationIconLightTheme">@style/KotlinExampleProject.ToolbarNavigationIconLightTheme</item>
+        <item name="baseBottomBar">@style/KotlinExampleProject.BottomBar</item>
+        <!-- Divider -->
+        <item name="dividerHeight">@dimen/base_divider_height</item>
+        <item name="dividerColor">@color/grey</item>
+        <!-- Background -->
+        <item name="colorBackground">@color/black_grey</item>
+        <item name="iconBackground">@color/white_grey</item>
     </style>
 </resources>
