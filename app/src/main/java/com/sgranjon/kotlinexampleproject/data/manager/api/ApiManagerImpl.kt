@@ -1,14 +1,15 @@
 package com.sgranjon.kotlinexampleproject.data.manager.api
 
-import com.sgranjon.kotlinexampleproject.data.entity.remote.CharacterListResultRemoteEntity
+import com.sgranjon.kotlinexampleproject.data.entity.remote.CharacterRemoteEntity
 import com.sgranjon.kotlinexampleproject.data.entity.remote.EpisodeRemoteEntity
+import com.sgranjon.kotlinexampleproject.data.entity.remote.PagingResponseRemoteEntity
 import com.sgranjon.kotlinexampleproject.data.manager.api.service.ApiRetrofitService
 import javax.inject.Inject
 
 class ApiManagerImpl @Inject constructor(private val apiRetrofitService: ApiRetrofitService) :
     ApiManager {
 
-    override suspend fun getAllCharacters(page: Int): CharacterListResultRemoteEntity {
+    override suspend fun getAllCharacters(page: Int): PagingResponseRemoteEntity<CharacterRemoteEntity> {
         return apiRetrofitService.getAllCharacters(page)
     }
 
