@@ -4,6 +4,7 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.sgranjon.kotlinexampleproject.data.entity.local.CharacterEntity
 import com.sgranjon.kotlinexampleproject.data.extensions.getPageNumberFromUrl
+import com.sgranjon.kotlinexampleproject.data.extensions.getRefreshKey
 import com.sgranjon.kotlinexampleproject.data.manager.api.ApiManager
 import com.sgranjon.kotlinexampleproject.data.manager.db.DbManager
 import com.sgranjon.kotlinexampleproject.data.mapper.db.CharacterDBEntityDataMapper
@@ -43,10 +44,7 @@ class CharacterPagingSource @Inject constructor(
     }
 
     override fun getRefreshKey(state: PagingState<Int, CharacterEntity>): Int? {
-        return state.anchorPosition?.let { anchorPosition ->
-            state.closestPageToPosition(anchorPosition)?.prevKey?.plus(1)
-                ?: state.closestPageToPosition(anchorPosition)?.nextKey?.minus(1)
-        }
+        return state.getRefreshKey()
     }
 
 }
