@@ -10,7 +10,7 @@ import androidx.lifecycle.Observer
  * @param observer Block
  */
 fun <T> LiveData<T>.observeCall(owner: LifecycleOwner, observer: () -> Unit) {
-    this.observe(owner, Observer<T> { observer() })
+    this.observe(owner, { observer() })
 }
 
 /**
@@ -19,17 +19,7 @@ fun <T> LiveData<T>.observeCall(owner: LifecycleOwner, observer: () -> Unit) {
  * @param observer Block with the not null value
  */
 fun <T> LiveData<T>.observeSafe(owner: LifecycleOwner, observer: (T) -> Unit) {
-    this.observe(owner, Observer<T> { t ->
+    this.observe(owner, { t ->
         t?.let { observer(it) }
     })
-}
-
-/**
- * Use this function to safely observe a postValue(T) with a block, executed only if value is not null, and emit actual value
- * @param owner LifecycleOwner, fragment or activity
- * @param observer Block with the not null value
- */
-fun <T> LiveData<T>.observeSafeWithInit(owner: LifecycleOwner, observer: (T) -> Unit) {
-    this.value?.let { observer(it) }
-    this.observeSafe(owner,observer)
 }

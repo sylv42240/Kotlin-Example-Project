@@ -1,7 +1,7 @@
 package com.sgranjon.kotlinexampleproject.data.business
 
 import androidx.paging.PagingData
-import com.sgranjon.kotlinexampleproject.data.business.pager.LocationPagingSource
+import com.sgranjon.kotlinexampleproject.data.business.paging_source.LocationPagingSource
 import com.sgranjon.kotlinexampleproject.data.entity.local.LocationEntity
 import com.sgranjon.kotlinexampleproject.data.extensions.createFlowFromPagingSource
 import dagger.Reusable

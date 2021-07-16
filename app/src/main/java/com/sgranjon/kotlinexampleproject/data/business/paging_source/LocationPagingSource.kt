@@ -1,4 +1,4 @@
-package com.sgranjon.kotlinexampleproject.data.business.pager
+package com.sgranjon.kotlinexampleproject.data.business.paging_source
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState

@@ -7,7 +7,7 @@ import com.sgranjon.kotlinexampleproject.data.extensions.fromJson
 class StringListConverter {
 
     @TypeConverter
-    fun stringListToString(stringList: List<String>) = Gson().toJson(stringList)
+    fun stringListToString(stringList: List<String>): String = Gson().toJson(stringList)
 
     @TypeConverter
     fun stringToStringList(data: String) = Gson().fromJson<Array<String>>(data).toList()

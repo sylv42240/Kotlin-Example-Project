@@ -1,7 +1,7 @@
 package com.sgranjon.kotlinexampleproject.data.business
 
 import androidx.paging.PagingData
-import com.sgranjon.kotlinexampleproject.data.business.pager.EpisodePagingSource
+import com.sgranjon.kotlinexampleproject.data.business.paging_source.EpisodePagingSource
 import com.sgranjon.kotlinexampleproject.data.entity.local.EpisodeEntity
 import com.sgranjon.kotlinexampleproject.data.exception.CharacterNotFoundException
 import com.sgranjon.kotlinexampleproject.data.extensions.createFlowFromPagingSource

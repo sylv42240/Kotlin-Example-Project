@@ -27,7 +27,6 @@
     <attr name="dividerHeight" format="dimension" />
 
     <!-- Background -->
-    <attr name="colorBackground" format="color" />
     <attr name="iconBackground" format="color" />
 
 </resources>

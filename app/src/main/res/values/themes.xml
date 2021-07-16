@@ -32,8 +32,8 @@
         <item name="dividerHeight">@dimen/base_divider_height</item>
         <item name="dividerColor">@color/grey</item>
         <!-- Background -->
-        <item name="colorBackground">@color/white_grey</item>
         <item name="iconBackground">@color/black_grey</item>
+        <item name="android:windowBackground">@color/white_grey</item>
     </style>
 
 
