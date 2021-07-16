@@ -8,4 +8,6 @@ interface ApiManager {
     suspend fun getAllCharacters(page: Int): PagingResponseRemoteEntity<CharacterRemoteEntity>
     suspend fun getCharacterEpisodeList(ids: String): List<EpisodeRemoteEntity>
     suspend fun getCharacterEpisode(id: String): EpisodeRemoteEntity
+
+    suspend fun getAllEpisodes(page: Int): PagingResponseRemoteEntity<EpisodeRemoteEntity>
 }

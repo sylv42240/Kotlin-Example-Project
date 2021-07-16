@@ -15,11 +15,17 @@ class CharacterViewDataWrapper(private val character: Character) {
 
     fun getImageUrl() = character.image
 
-    fun getSpecies() = character.species
+    fun getSpecies(context: Context) = if (character.species == "unknown") {
+        context.getString(R.string.character_origin_and_species_unknown_label)
+    } else {
+        character.species
+    }
 
-    fun getLocation() = character.location
-
-    fun getOrigin() = character.origin
+    fun getOrigin(context: Context) = if (character.origin == "unknown") {
+        context.getString(R.string.character_origin_and_species_unknown_label)
+    } else {
+        character.origin
+    }
 
     fun getEpisodeCountText(context: Context) = context.resources.getQuantityString(
         R.plurals.character_episode_count,

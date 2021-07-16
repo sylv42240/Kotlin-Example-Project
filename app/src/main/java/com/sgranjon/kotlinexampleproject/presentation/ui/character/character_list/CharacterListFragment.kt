@@ -1,4 +1,4 @@
-package com.sgranjon.kotlinexampleproject.presentation.ui.character_list
+package com.sgranjon.kotlinexampleproject.presentation.ui.character.character_list
 
 import android.content.Context
 import android.os.Bundle
@@ -8,19 +8,17 @@ import android.view.ViewGroup
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.sgranjon.kotlinexampleproject.data.exception.CharacterNotFoundException
+import com.sgranjon.kotlinexampleproject.data.exception.RequestFailException
 import com.sgranjon.kotlinexampleproject.databinding.FragmentCharacterListBinding
 import com.sgranjon.kotlinexampleproject.presentation.base.fragment.BaseVMFragment
 import com.sgranjon.kotlinexampleproject.presentation.component.snackbar.SnackbarComponent
 import com.sgranjon.kotlinexampleproject.presentation.extensions.hide
 import com.sgranjon.kotlinexampleproject.presentation.extensions.observeSafe
 import com.sgranjon.kotlinexampleproject.presentation.extensions.show
-import com.sgranjon.kotlinexampleproject.presentation.ui.character_list.item.CharacterListAdapter
+import com.sgranjon.kotlinexampleproject.presentation.ui.character.character_list.item.CharacterListAdapter
 import com.sgranjon.kotlinexampleproject.presentation.ui.main.navigator.CharacterListNavigatorListener
 import javax.inject.Inject
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 
-@ExperimentalCoroutinesApi
 class CharacterListFragment :
     BaseVMFragment<CharacterListViewModel, FragmentCharacterListBinding>() {
 
@@ -74,7 +72,7 @@ class CharacterListFragment :
             if (loadState.source.refresh is LoadState.Error) {
                 snackbarComponent.displayError(
                     requireContext(),
-                    CharacterNotFoundException(),
+                    RequestFailException(),
                     requireView()
                 )
                 binding {

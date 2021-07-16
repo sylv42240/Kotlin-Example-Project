@@ -1,4 +1,4 @@
-package com.sgranjon.kotlinexampleproject.presentation.ui.character_detail.item
+package com.sgranjon.kotlinexampleproject.presentation.ui.episode_list.item
 
 import android.view.View
 import android.widget.TextView
@@ -14,9 +14,13 @@ class EpisodeViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         with(itemView) {
             val name = findViewById<TextView>(R.id.view_episode_item_name)
             val number = findViewById<TextView>(R.id.view_episode_item_number)
+            val date = findViewById<TextView>(R.id.view_episode_item_date)
+            val characterCount = findViewById<TextView>(R.id.view_episode_item_character_count)
 
             name.text = episode.getName()
             number.text = episode.getEpisodeNumber()
+            date.text = episode.getDate()
+            characterCount.text = episode.getCharacterCountText(context)
         }
     }
 }

@@ -19,8 +19,6 @@ data class CharacterRemoteEntity(
     val image: String,
     @SerializedName("origin")
     val origin: OriginRemoteEntity,
-    @SerializedName("location")
-    val location: LocationRemoteEntity,
     @SerializedName("episode")
     val episodeList: List<String>
 )

@@ -1,4 +1,4 @@
-package com.sgranjon.kotlinexampleproject.presentation.ui.character_detail
+package com.sgranjon.kotlinexampleproject.presentation.ui.character.character_detail
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,7 +13,7 @@ import com.sgranjon.kotlinexampleproject.databinding.FragmentCharacterDetailBind
 import com.sgranjon.kotlinexampleproject.presentation.base.fragment.BaseVMFragment
 import com.sgranjon.kotlinexampleproject.presentation.component.snackbar.SnackbarComponent
 import com.sgranjon.kotlinexampleproject.presentation.extensions.observeSafe
-import com.sgranjon.kotlinexampleproject.presentation.ui.character_detail.item.EpisodeListAdapter
+import com.sgranjon.kotlinexampleproject.presentation.ui.character.character_detail.item.CharacterEpisodeListAdapter
 import com.sgranjon.kotlinexampleproject.presentation.ui.main.MainActivity
 import javax.inject.Inject
 
@@ -30,7 +30,7 @@ class CharacterDetailFragment :
     lateinit var snackbarComponent: SnackbarComponent
 
     @Inject
-    lateinit var episodeListAdapter: EpisodeListAdapter
+    lateinit var characterEpisodeListAdapter: CharacterEpisodeListAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -52,8 +52,8 @@ class CharacterDetailFragment :
                 characterDetailName.text = character.getName()
                 characterDetailGender.text = character.getGender(requireContext())
                 characterDetailStatus.text = character.getStatus(requireContext())
-                characterDetailSpecies.text = character.getSpecies()
-                characterDetailOrigin.text = character.getOrigin()
+                characterDetailSpecies.text = character.getSpecies(requireContext())
+                characterDetailOrigin.text = character.getOrigin(requireContext())
                 characterDetailEpisodeCount.text = character.getEpisodeCountText(requireContext())
                 (requireActivity() as MainActivity).binding {
                     activityMainToolbar.title = character.getName()
@@ -62,7 +62,7 @@ class CharacterDetailFragment :
         }
         viewModel.getEpisodeListLiveData().observeSafe(viewLifecycleOwner) { episodes ->
             episodes.map { println(it.getEpisodeNumber()) }
-            episodeListAdapter.setItems(episodes)
+            characterEpisodeListAdapter.setItems(episodes)
         }
         viewModel.getErrorLiveEvent().observeSafe(viewLifecycleOwner) {
             snackbarComponent.displayError(requireContext(), it, requireView())
@@ -76,7 +76,7 @@ class CharacterDetailFragment :
                     orientation = RecyclerView.VERTICAL
                 }
                 addItemDecoration(DividerItemDecoration(requireContext(), RecyclerView.VERTICAL))
-                adapter = episodeListAdapter
+                adapter = characterEpisodeListAdapter
             }
         }
     }

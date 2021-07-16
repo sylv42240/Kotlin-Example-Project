@@ -2,7 +2,7 @@ package com.sgranjon.kotlinexampleproject.presentation.ui.main.navigator
 
 import androidx.navigation.NavController
 import com.sgranjon.kotlinexampleproject.presentation.component.navigation.NavigationComponent
-import com.sgranjon.kotlinexampleproject.presentation.ui.character_list.CharacterListFragmentDirections
+import com.sgranjon.kotlinexampleproject.presentation.ui.character.character_list.CharacterListFragmentDirections
 import dagger.Lazy
 import javax.inject.Inject
 

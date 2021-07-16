@@ -23,7 +23,6 @@ class CharacterDBEntityDataMapper @Inject constructor(
         gender = input.gender,
         image = input.image,
         origin = input.origin,
-        location = input.location,
         episodeList = input.episodeList
     )
 
@@ -36,7 +35,6 @@ class CharacterDBEntityDataMapper @Inject constructor(
         gender = input.gender,
         image = input.image,
         origin = input.origin,
-        location = input.location,
         episodeList = input.episodeList
     )
 

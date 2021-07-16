@@ -1,4 +1,4 @@
-package com.sgranjon.kotlinexampleproject.presentation.ui.character_list.item
+package com.sgranjon.kotlinexampleproject.presentation.ui.character.character_list.item
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

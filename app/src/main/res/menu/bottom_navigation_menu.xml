@@ -13,8 +13,8 @@
         android:title="@string/menu_episode_list_title" />
 
     <item
-        android:id="@+id/settingsFragment"
+        android:id="@+id/locationListFragment"
         android:enabled="true"
-        android:icon="@drawable/ic_settings"
-        android:title="@string/menu_settings_title" />
+        android:icon="@drawable/ic_location"
+        android:title="@string/menu_location_list_title" />
 </menu>

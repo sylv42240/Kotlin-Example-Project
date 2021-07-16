@@ -1,10 +1,10 @@
 package com.sgranjon.kotlinexampleproject.data.component.trace
 
-import timber.log.Timber
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 import javax.inject.Inject
+import timber.log.Timber
 
 private const val LOG_FORMAT_LOCAL = "%s; %s; %s; %s"
 private const val LOG_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"

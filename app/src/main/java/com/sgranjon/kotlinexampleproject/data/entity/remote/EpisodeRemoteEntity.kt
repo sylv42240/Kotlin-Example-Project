@@ -10,5 +10,7 @@ data class EpisodeRemoteEntity(
     @SerializedName("air_date")
     val date: String,
     @SerializedName("episode")
-    val number: String
+    val number: String,
+    @SerializedName("characters")
+    val characterList: List<String>
 )

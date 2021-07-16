@@ -30,7 +30,6 @@ class CharacterEntityDataMapper @Inject constructor(
         gender = characterGenderDataMapper.transformStringToCharacterGender(input.gender),
         image = input.image,
         origin = input.origin,
-        location = input.location,
         episodeList = input.episodeList
     )
 

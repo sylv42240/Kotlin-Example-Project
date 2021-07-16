@@ -22,9 +22,12 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/character_list_empty_placeholder_text"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/base_margin_double"
+            android:layout_marginVertical="@dimen/base_margin_double"
             android:text="@string/character_list_empty_label"
+            android:textAlignment="center"
             android:textAppearance="?attr/textAppearanceTitle2Dark"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"

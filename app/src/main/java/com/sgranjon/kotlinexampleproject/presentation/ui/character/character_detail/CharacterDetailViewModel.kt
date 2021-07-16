@@ -1,10 +1,11 @@
-package com.sgranjon.kotlinexampleproject.presentation.ui.character_detail
+package com.sgranjon.kotlinexampleproject.presentation.ui.character.character_detail
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sgranjon.kotlinexampleproject.data.repository.CharacterRepository
+import com.sgranjon.kotlinexampleproject.data.repository.EpisodeRepository
 import com.sgranjon.kotlinexampleproject.presentation.base.SingleLiveEvent
 import com.sgranjon.kotlinexampleproject.presentation.wrapper.CharacterViewDataWrapper
 import com.sgranjon.kotlinexampleproject.presentation.wrapper.EpisodeViewDataWrapper
@@ -13,8 +14,10 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-class CharacterDetailViewModel @Inject constructor(private val characterRepository: CharacterRepository) :
-    ViewModel() {
+class CharacterDetailViewModel @Inject constructor(
+    private val characterRepository: CharacterRepository,
+    private val episodeRepository: EpisodeRepository
+) : ViewModel() {
     private val characterDetailLiveData = MutableLiveData<CharacterViewDataWrapper>()
     private val episodeListLiveData = MutableLiveData<List<EpisodeViewDataWrapper>>()
     private val errorLiveEvent = SingleLiveEvent<Throwable>()
@@ -31,7 +34,7 @@ class CharacterDetailViewModel @Inject constructor(private val characterReposito
 
     fun retrieveCharacterEpisodeList(id: Int) {
         viewModelScope.launch {
-            characterRepository.retrieveCharacterEpisodeList(id).catch {
+            episodeRepository.retrieveCharacterEpisodeList(id).catch {
                 errorLiveEvent.postValue(it)
             }.collect { episodes ->
                 episodeListLiveData.postValue(episodes.map { EpisodeViewDataWrapper(it) })

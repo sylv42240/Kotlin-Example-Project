@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/characterListFragment"
-        android:name="com.sgranjon.kotlinexampleproject.presentation.ui.character_list.CharacterListFragment"
+        android:name="com.sgranjon.kotlinexampleproject.presentation.ui.character.character_list.CharacterListFragment"
         android:label="@string/menu_character_list_title"
         tools:layout="@layout/fragment_character_list">
         <action
@@ -24,13 +24,13 @@
         android:label="@string/menu_episode_list_title"
         tools:layout="@layout/fragment_episode_list" />
     <fragment
-        android:id="@+id/settingsFragment"
-        android:name="com.sgranjon.kotlinexampleproject.presentation.ui.settings.SettingsFragment"
-        android:label="@string/menu_settings_title"
-        tools:layout="@layout/fragment_settings" />
+        android:id="@+id/locationListFragment"
+        android:name="com.sgranjon.kotlinexampleproject.presentation.ui.location_list.LocationListFragment"
+        android:label="@string/menu_location_list_title"
+        tools:layout="@layout/fragment_location_list" />
     <fragment
         android:id="@+id/characterDetailFragment"
-        android:name="com.sgranjon.kotlinexampleproject.presentation.ui.character_detail.CharacterDetailFragment"
+        android:name="com.sgranjon.kotlinexampleproject.presentation.ui.character.character_detail.CharacterDetailFragment"
         android:label="CharacterDetailFragment"
         tools:layout="@layout/fragment_character_detail" />
 </navigation>

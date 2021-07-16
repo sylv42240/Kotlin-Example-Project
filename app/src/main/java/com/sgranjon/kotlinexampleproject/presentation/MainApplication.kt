@@ -1,11 +1,11 @@
 package com.sgranjon.kotlinexampleproject.presentation
 
 import android.app.Application
+import com.sgranjon.kotlinexampleproject.data.di.DaggerDataComponent
+import com.sgranjon.kotlinexampleproject.presentation.di.DaggerApplicationComponent
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
-import com.sgranjon.kotlinexampleproject.data.di.DaggerDataComponent
-import com.sgranjon.kotlinexampleproject.presentation.di.DaggerApplicationComponent
 import javax.inject.Inject
 
 class MainApplication : Application(), HasAndroidInjector {

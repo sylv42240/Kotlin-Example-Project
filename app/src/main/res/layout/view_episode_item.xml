@@ -7,16 +7,14 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/view_episode_item_number"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/base_margin"
+        android:layout_marginHorizontal="@dimen/base_margin"
         android:layout_marginTop="@dimen/base_margin"
         android:textAppearance="?attr/textAppearanceSubtitle1Dark"
         android:textColor="?attr/colorOnSecondary"
-        android:layout_marginBottom="@dimen/base_margin"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/view_episode_item_date"
         app:layout_constraintEnd_toStartOf="@id/view_episode_item_name"
-        app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="S01E10" />
@@ -25,16 +23,44 @@
         android:id="@+id/view_episode_item_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/base_margin"
-        android:layout_marginEnd="@dimen/base_margin"
+        android:layout_marginHorizontal="@dimen/base_margin"
+        android:textAlignment="textEnd"
         android:textAppearance="?attr/textAppearanceBody2"
         android:textColor="?attr/colorOnSecondary"
         app:layout_constraintBottom_toBottomOf="@id/view_episode_item_number"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_weight="5"
         app:layout_constraintStart_toEndOf="@id/view_episode_item_number"
         app:layout_constraintTop_toTopOf="@id/view_episode_item_number"
         tools:text="Close Rick-counters of the Rick Kind" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/view_episode_item_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/base_margin"
+        android:layout_marginTop="@dimen/base_margin"
+        android:layout_marginBottom="@dimen/base_margin"
+        android:textAppearance="?attr/textAppearanceSubtitle1Dark"
+        android:textColor="?attr/colorOnSecondary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/view_episode_item_character_count"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_episode_item_number"
+        tools:text="December 2, 2013" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/view_episode_item_character_count"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/base_margin"
+        android:textAlignment="textEnd"
+        android:textAppearance="?attr/textAppearanceBody2"
+        android:textColor="?attr/colorOnSecondary"
+        app:layout_constraintBottom_toBottomOf="@id/view_episode_item_date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/view_episode_item_date"
+        app:layout_constraintTop_toTopOf="@id/view_episode_item_date"
+        tools:text="Nombre de personnages : 32" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

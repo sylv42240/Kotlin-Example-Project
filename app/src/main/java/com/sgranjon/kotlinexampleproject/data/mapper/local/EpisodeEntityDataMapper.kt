@@ -23,7 +23,8 @@ class EpisodeEntityDataMapper @Inject constructor(
         id = input.id,
         name = input.name,
         date = input.date,
-        number = input.number
+        number = input.number,
+        characterList = input.characterList
     )
 
     override fun onMappingError(error: Exception) {

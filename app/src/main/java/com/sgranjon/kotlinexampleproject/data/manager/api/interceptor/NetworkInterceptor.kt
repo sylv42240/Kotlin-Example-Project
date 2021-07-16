@@ -4,13 +4,13 @@ package com.sgranjon.kotlinexampleproject.data.manager.api.interceptor
 import com.sgranjon.kotlinexampleproject.data.exception.OfflineException
 import com.sgranjon.kotlinexampleproject.data.exception.RequestFailException
 import dagger.Reusable
-import okhttp3.Interceptor
-import okhttp3.Response
 import java.net.ConnectException
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
 import java.util.concurrent.TimeoutException
 import javax.inject.Inject
+import okhttp3.Interceptor
+import okhttp3.Response
 
 
 @Reusable

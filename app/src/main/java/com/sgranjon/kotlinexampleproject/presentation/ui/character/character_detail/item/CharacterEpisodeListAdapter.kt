@@ -1,4 +1,4 @@
-package com.sgranjon.kotlinexampleproject.presentation.ui.character_detail.item
+package com.sgranjon.kotlinexampleproject.presentation.ui.character.character_detail.item
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,22 +8,22 @@ import com.sgranjon.kotlinexampleproject.presentation.wrapper.EpisodeViewDataWra
 import javax.inject.Inject
 
 
-class EpisodeListAdapter @Inject constructor() : RecyclerView.Adapter<EpisodeViewHolder>() {
+class CharacterEpisodeListAdapter @Inject constructor() : RecyclerView.Adapter<CharacterEpisodeViewHolder>() {
 
     private val items = mutableListOf<EpisodeViewDataWrapper>()
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EpisodeViewHolder {
-        return EpisodeViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterEpisodeViewHolder {
+        return CharacterEpisodeViewHolder(
             LayoutInflater.from(parent.context).inflate(
-                R.layout.view_episode_item,
+                R.layout.view_character_episode_item,
                 parent,
                 false
             )
         )
     }
 
-    override fun onBindViewHolder(holder: EpisodeViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CharacterEpisodeViewHolder, position: Int) {
         holder.bind(items[position])
     }
 

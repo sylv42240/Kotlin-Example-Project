@@ -14,6 +14,5 @@ data class CharacterDBEntity(
     @ColumnInfo val gender: String,
     @ColumnInfo val image: String,
     @ColumnInfo val origin: String,
-    @ColumnInfo val location: String,
     @ColumnInfo val episodeList: List<String>
 )

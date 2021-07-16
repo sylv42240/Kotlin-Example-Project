@@ -28,7 +28,6 @@ class CharacterRemoteEntityDataMapper @Inject constructor(
             gender = input.gender,
             image = input.image,
             origin = input.origin.name,
-            location = input.location.name,
             episodeList = input.episodeList
         )
 

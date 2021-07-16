@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.sgranjon.kotlinexampleproject.R
 import com.sgranjon.kotlinexampleproject.databinding.ActivityMainBinding
@@ -29,7 +28,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             topLevelDestinationIds = setOf(
                 R.id.characterListFragment,
                 R.id.episodeListFragment,
-                R.id.settingsFragment
+                R.id.locationListFragment
             ),
             fallbackOnNavigateUpListener = ::onSupportNavigateUp
         )

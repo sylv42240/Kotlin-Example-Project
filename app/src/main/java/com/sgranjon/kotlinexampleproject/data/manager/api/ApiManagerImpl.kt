@@ -21,4 +21,8 @@ class ApiManagerImpl @Inject constructor(private val apiRetrofitService: ApiRetr
         return apiRetrofitService.getCharacterEpisode(id)
     }
 
+    override suspend fun getAllEpisodes(page: Int): PagingResponseRemoteEntity<EpisodeRemoteEntity> {
+        return apiRetrofitService.getAllEpisodes(page)
+    }
+
 }

@@ -19,10 +19,10 @@
     <!-- Menu -->
     <string name="menu_character_list_title">Personnages</string>
     <string name="menu_episode_list_title">Episodes</string>
-    <string name="menu_settings_title">Paramètres</string>
+    <string name="menu_location_list_title">Lieux</string>
 
-    <!-- Character Screens -->
-    <string name="character_list_empty_label">Aucun personnage trouvé</string>
+    <!-- Character -->
+    <string name="character_list_empty_label">Impossible de récupérer la liste des personnages</string>
 
     <string name="character_gender_male">Homme</string>
     <string name="character_gender_female">Femme</string>
@@ -43,5 +43,11 @@
         <item quantity="one">%s épisode</item>
         <item quantity="other">%s épisodes</item>
     </plurals>
+    <string name="character_origin_and_species_unknown_label">Inconnue</string>
+
+    <!-- Episode -->
+    <string name="episode_list_empty_label">Impossible de récupérer la liste des épisodes</string>
+
+    <string name="episode_character_count">Nombre de personnages : %d</string>
 
 </resources>
