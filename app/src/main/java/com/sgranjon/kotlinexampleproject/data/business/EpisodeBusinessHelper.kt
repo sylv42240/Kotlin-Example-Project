@@ -13,8 +13,6 @@ import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
-private const val API_PAGE_SIZE = 20
-
 @Reusable
 class EpisodeBusinessHelper @Inject constructor(
     private val apiManager: ApiManager,

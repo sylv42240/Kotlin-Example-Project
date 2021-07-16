@@ -23,16 +23,13 @@
 
     <!-- Character -->
     <string name="character_list_empty_label">Impossible de récupérer la liste des personnages</string>
-
     <string name="character_gender_male">Homme</string>
     <string name="character_gender_female">Femme</string>
     <string name="character_gender_genderless">Sans genre</string>
     <string name="character_gender_unknown">Genre inconnu</string>
-
     <string name="character_status_alive">Vivant</string>
     <string name="character_status_dead">Mort</string>
     <string name="character_status_unknown">Statut Inconnu</string>
-
     <string name="character_gender_label">Genre</string>
     <string name="character_status_label">Statut</string>
     <string name="character_species_label">Espèce</string>
@@ -47,7 +44,11 @@
 
     <!-- Episode -->
     <string name="episode_list_empty_label">Impossible de récupérer la liste des épisodes</string>
+    <string name="episode_character_count">Personnages : %d</string>
 
-    <string name="episode_character_count">Nombre de personnages : %d</string>
+    <!-- Location -->
+    <string name="location_list_empty_label">Impossible de récupérer la liste des lieux</string>
+    <string name="location_resident_count">Résidents : %d</string>
+    <string name="location_dimension_unknown_label">Dimension inconnue</string>
 
 </resources>
