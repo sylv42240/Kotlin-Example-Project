@@ -2,7 +2,6 @@ package com.sgranjon.kotlinexampleproject.presentation.extensions
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.Observer
 
 /**
  * Use this function to observe a call() with a block
