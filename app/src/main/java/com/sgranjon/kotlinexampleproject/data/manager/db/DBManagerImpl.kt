@@ -5,7 +5,7 @@ import com.sgranjon.kotlinexampleproject.data.entity.db.CharacterDBEntity
 import com.sgranjon.kotlinexampleproject.data.manager.db.dao.CharacterDao
 import javax.inject.Inject
 
-class DbManagerImpl @Inject constructor(appDatabase: AppDatabase) : DbManager {
+class DBManagerImpl @Inject constructor(appDatabase: AppDatabase) : DBManager {
 
     private val characterDao: CharacterDao = appDatabase.characterDao()
 

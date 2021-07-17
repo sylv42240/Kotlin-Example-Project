@@ -6,7 +6,7 @@ import com.sgranjon.kotlinexampleproject.data.entity.local.EpisodeEntity
 import com.sgranjon.kotlinexampleproject.data.exception.CharacterNotFoundException
 import com.sgranjon.kotlinexampleproject.data.extensions.createFlowFromPagingSource
 import com.sgranjon.kotlinexampleproject.data.manager.api.ApiManager
-import com.sgranjon.kotlinexampleproject.data.manager.db.DbManager
+import com.sgranjon.kotlinexampleproject.data.manager.db.DBManager
 import com.sgranjon.kotlinexampleproject.data.mapper.remote.EpisodeRemoteEntityDataMapper
 import dagger.Reusable
 import javax.inject.Inject
@@ -16,7 +16,7 @@ import kotlinx.coroutines.flow.flow
 @Reusable
 class EpisodeBusinessHelper @Inject constructor(
     private val apiManager: ApiManager,
-    private val dbManager: DbManager,
+    private val dbManager: DBManager,
     private val episodeRemoteEntityDataMapper: EpisodeRemoteEntityDataMapper,
     private val episodePagingSource: EpisodePagingSource
 ) {

@@ -6,7 +6,7 @@ import com.sgranjon.kotlinexampleproject.data.entity.local.CharacterEntity
 import com.sgranjon.kotlinexampleproject.data.extensions.getPageNumberFromUrl
 import com.sgranjon.kotlinexampleproject.data.extensions.getRefreshKey
 import com.sgranjon.kotlinexampleproject.data.manager.api.ApiManager
-import com.sgranjon.kotlinexampleproject.data.manager.db.DbManager
+import com.sgranjon.kotlinexampleproject.data.manager.db.DBManager
 import com.sgranjon.kotlinexampleproject.data.mapper.db.CharacterDBEntityDataMapper
 import com.sgranjon.kotlinexampleproject.data.mapper.remote.CharacterRemoteEntityDataMapper
 import dagger.Reusable
@@ -16,7 +16,7 @@ import okio.IOException
 @Reusable
 class CharacterPagingSource @Inject constructor(
     private val apiManager: ApiManager,
-    private val dbManager: DbManager,
+    private val dbManager: DBManager,
     private val characterRemoteEntityDataMapper: CharacterRemoteEntityDataMapper,
     private val characterDBEntityDataMapper: CharacterDBEntityDataMapper
 ) : PagingSource<Int, CharacterEntity>() {
