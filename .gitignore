@@ -250,3 +250,4 @@ fabric.properties
 # End of https://www.toptal.com/developers/gitignore/api/kotlin,java,android,androidstudio
 /.idea/codeStyles/codeStyleConfig.xml
 /.idea/codeStyles/Project.xml
+/app/release/output-metadata.json
