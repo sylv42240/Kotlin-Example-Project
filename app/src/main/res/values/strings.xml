@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Rick &amp; Morty Wiki</string>
+    <string name="app_name">The Rick Wiki</string>
 
     <!-- General -->
     <string name="button_neutral_text">OK</string>
